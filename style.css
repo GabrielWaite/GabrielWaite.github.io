@@ -1,0 +1,213 @@
+body, html {
+    margin-left:0;
+    margin-right: 0;
+    padding-left:5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 50px;
+    color:#000;
+    background: #F6F6EF;
+    color: black;
+}
+/*ea7186
+f2c76e
+7a77b9
+bd9dea*/
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 5%;
+  background-color: #7a77b9;
+  color: whitesmoke;
+}
+
+.navigate_links {
+	list-style: none;
+  color: whitesmoke;
+}
+ 
+.navigate_links li {
+	display: inline-block;
+	padding: 0px 10px;
+}
+ 
+.navigate_links li a {
+  color: black;
+	transition: all 0.25s ease-in-out 0s;
+}
+
+.navigate_links li a:hover {
+	color: white;
+}
+
+/* .titlebox {
+  width: auto;
+  height: auto;
+  padding: 5px;
+  margin: 5px;
+  background-color: #7a77b9;
+  color: whitesmoke;
+} */
+
+.modelheadingbox {
+  width: 300px;
+  height: auto;
+  padding: 1px;
+  margin: 5px;
+  background-color: #f2c76e;
+  color: whitesmoke;
+  text-align: center;
+  display: inline-block;
+}
+
+.modelequation-box {
+	width: auto;
+	padding: 5pt;
+	border: 3pt double black;
+	background-color: #ea7186;
+	text-align: center;
+	font-size: 17.5pt;
+}
+
+.parent-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px; /* Adjust as needed */
+	height: auto;
+}
+
+.child-box {
+	flex: 0 0 45%; /* Sets a fixed width of 50% of the parent's width */
+	height: 650px;
+	padding: 10pt;
+	background-color: #f4eee0; /* Just for visualization */
+	margin: 0 10px; /* Adjust the gap between child boxes */
+	border: 2px solid black; /* Transparent border by default */
+	transition: border 0.4s; /* Smooth transition for the border */
+}
+
+.child-box:hover {
+	background: #e9e2ff;
+	border: 4px double black;
+}
+
+.conditionals-box {
+  width: auto;
+  height: auto;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  background-color: rgba(255,249,207,255);
+}
+
+.reductions-box {
+  width: auto;
+  height: auto;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  background-color: rgba(191,191,255,255);
+}
+
+.gadgets-box {
+  width: auto;
+  height: auto;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  background-color: rgba(191,255,191,255);
+}
+
+.small {
+  font-variant: small-caps;
+}
+
+.disclosure-box {
+  width: 400px;
+  height: auto;
+  padding: 1px;
+  background-color: tomato;
+  color: whitesmoke;
+  margin: 15px;
+}
+
+.definition-box {
+  width: auto;
+  height: auto;
+  border: 2px solid black;
+  padding: 10px;
+  margin: 20px;
+  font-size: 20px;
+  background-color: whitesmoke;
+}
+
+.definition-box:hover {
+  background: #e9e2ff;
+}
+
+.definition-box p:hover {
+  color: whitesmoke;
+}
+
+.definition-box b:hover {
+  color: whitesmoke;
+}
+
+/* .definition-box:target {
+  animation: target-fade 1s 1;
+}
+
+@keyframes target-fade {
+  0% {background-color: #f2c76e;}
+  100% {background-color: whitesmoke;}
+} */
+
+:target {
+  animation: target-fade 3s 1;
+  }
+
+  @keyframes target-fade {
+  0% {background-color: #f2c76e;}
+  100% {background-color: whitesmoke;}
+  }
+
+.definition-box-child {
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  font-size: 23px;
+}
+
+.definition-box-child:hover {
+  background: #aaa1c7;
+}
+
+.zookeeper-box {
+  width: 400px;
+  height: auto;
+  padding: 5pt;
+  background-color: #a1c7ae;
+  color: black;
+  margin: 15px;
+}
+
+.ryan-box {
+  width: 400px;
+  height: auto;
+  padding: 5pt;
+  background-color: #edf099;
+  color: black;
+  margin: 15px;
+}
+
+.sam-box {
+  width: 400px;
+  height: auto;
+  padding: 5pt;
+  background-color: black;
+  color: red;
+  margin: 15px;
+}
