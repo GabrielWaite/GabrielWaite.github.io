@@ -211,3 +211,12 @@ header {
   color: red;
   margin: 15px;
 }
+
+.acknowledgements-box {
+  width: 400px;
+  height: auto;
+  padding: 5pt;
+  background-color: whitesmoke;
+  color: black;
+  margin: 15px;
+}
