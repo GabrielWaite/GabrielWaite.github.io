@@ -16,11 +16,16 @@
     body {
       font-family: "Computer Modern Sans", typewriter;
     }
-  </style> 
-  <style>
   	p.small {
   		font-variant: small-caps;
   	}
+    #bottom {
+      position: relative;
+      bottom: 0;
+      right: 0;
+      font-size: 10pt;
+      color: darkslateblue;
+        }
   </style>
  </head>
 
@@ -67,7 +72,7 @@
           <li>Nearest neighbor interactions</li>
           <li>$\Lambda$ representing a spatially sparse lattice</li>
           <li>External fields of the form: $-\displaystyle\sum_{i\in\Lambda} \boldsymbol{B}_i \cdot \boldsymbol{S}_i$</li>
-        </ul> 
+        </ul>
       </div>
 
     <!-- Reductions --> <!-- Reductions --> <!-- Reductions -->
@@ -84,7 +89,7 @@
         <b>Gadgets:</b>
         <p>Pauli coupling gadget, Pauli-to-Ising coupling gadget, Ising-to-($XX$ and $ZZ$) coupling gadget.</p> 
       </div>
-
+      <div id="bottom">Issue #1</div>
     </div>
 
 <!-- Issue HM02 --><!-- Issue HM02 --><!-- Issue HM02 -->
@@ -123,8 +128,9 @@
           <b>Gadgets:</b>
           <p>Erasure gadget</p> 
         </div>
+        <div id="bottom">Issue #2</div>
       </div>
-
+      
     </div>
 
   </div>
@@ -163,11 +169,114 @@
         <b>Gadgets:</b>
         <p>Positive and negative subdivision gadgets</p>  
       </div>
+      <div id="bottom">Issue #3</div>
     </div>
+<!-- Issue HM04 --><!-- Issue HM04 --><!-- Issue HM04 -->
+<!-- Issue HM04 --><!-- Issue HM04 --><!-- Issue HM04 -->
+<!-- Issue HM04 --><!-- Issue HM04 --><!-- Issue HM04 -->
+    <div class="child-box">
+      <br>
+      <center>$\large H=\displaystyle\sum_{i,j\in\Lambda} J_{ij}\big(X_iX_j + Y_iY_j + Z_iZ_j\big)$</center>
+      <br>
+      <b>Problem:</b> Ground state energy</br>
+      <b><font color="red">Complexity:</b> QMA-complete</br></font>
+      <b><font color="blue">Ref:</b> [<a href="#PM15+">PM15+</a>]</br></font>
+      <!-- Conditionals -->   <!-- Conditionals -->   <!-- Conditionals -->
+      <div class="conditionals-box">
+          <b>Conditionals:</b>
+          <ul>
+            <li>$\Lambda$ representing a 2D square lattice</li>
+          </ul>
+      </div>
+      <!-- Reductions -->     <!-- Reductions -->     <!-- Reductions -->
+      <div class="reductions-box">
+            <b>Conditionals:</b>
+                    <p><font class="small">From:</font> The weighted (xyz/.) Hamiltonian on a 2D square lattice</p>
+                    <p><font class="small">To:</font> The Heisenberg Hamiltonian on a 2D triangular lattice</p>
+      </div>
+      <div id="bottom">Issue #4</div>
     </div>
   </div>
 
+  <div class="parent-box">
+<!-- Issue HM05 --><!-- Issue HM05 --><!-- Issue HM05 -->
+<!-- Issue HM05 --><!-- Issue HM05 --><!-- Issue HM05 -->
+<!-- Issue HM05 --><!-- Issue HM05 --><!-- Issue HM05 -->
+    <div class="child-box">
+      <br>
+      <center>$\large H=\displaystyle\sum_{i,j\in\Lambda} J_{ij}\big(X_iX_j + Y_iY_j + Z_iZ_j\big)$</center>
+      <br>
+      <b>Problem:</b> Ground state energy</br>
+      <b><font color="red">Complexity:</b> QMA-complete</br></font>
+      <b><font color="blue">Ref:</b> [<a href="#PM15+">PM15+</a>]</br></font>
+      <!-- Conditionals -->   <!-- Conditionals -->   <!-- Conditionals -->
+      <div class="conditionals-box">
+            <b>Conditionals:</b>
+            <ul>
+                    <li>$\Lambda$ representing a 2D triangular lattice</li>
+            </ul>
+      </div>
+      <!-- Reductions -->     <!-- Reductions -->     <!-- Reductions -->
+      <div class="reductions-box">
+            <b>Conditionals:</b>
+                    <p><font class="small">From:</font> The weighted (xyz/.) Hamiltonian on a 2D square lattice</p>
+                    <p><font class="small">To:</font> The (xy/.) Hamiltonian on a 2D triangular lattice</p>
+      </div>
+    </div>
+<!-- Issue HM06 --><!-- Issue HM06 --><!-- Issue HM06 -->
+<!-- Issue HM06 --><!-- Issue HM06 --><!-- Issue HM06 -->
+<!-- Issue HM06 --><!-- Issue HM06 --><!-- Issue HM06 -->
+    <div class="child-box">
+        <br>
+      <center>$\large H=\displaystyle\sum_{i,j\in\Lambda} J_{ij}\big(X_iX_j + Y_iY_j + Z_iZ_j\big)$</center>
+        <br>
+      <b>Problem:</b> Ground state energy</br>
+      <b><font color="red">Complexity:</b> QMA-complete</br></font>
+      <b><font color="blue">Ref:</b> [<a href="#PM15">PM15</a>]</br></font>
+      <!-- Conditionals -->   <!-- Conditionals -->   <!-- Conditionals -->
+      <div class="conditionals-box">
+            <b>Conditionals:</b>
+            <ul>
+                    <li>$J_{ij}\geq 0$</li>
+                    <li>$\Lambda$ representing an interaction graph</li>
+            </ul>
+      </div>
+      <!-- Reductions -->     <!-- Reductions -->     <!-- Reductions -->
+      <div class="reductions-box">
+            <b>Conditionals:</b>
+                    <p><font class="small">From:</font> The Heisenberg Hamiltonian</p>
+                    <p><font class="small">To:</font> The IaF-Heisenberg Hamiltonian on a 2D triangular lattice</p>
+      </div>
+    </div>
+  </div>
 
+  <div class="parent-box">
+<!-- Issue HM07 --><!-- Issue HM07 --><!-- Issue HM07 -->
+<!-- Issue HM07 --><!-- Issue HM07 --><!-- Issue HM07 -->
+<!-- Issue HM07 --><!-- Issue HM07 --><!-- Issue HM07 -->
+    <div class="child-box">
+      <br>
+      <center>$\large H=\displaystyle\sum_{i,j\in\Lambda} J_{ij}\big(X_iX_j + Y_iY_j + Z_iZ_j\big)$</center>
+      <br>
+      <b>Problem:</b> Ground state energy</br>
+      <b><font color="red">Complexity:</b> QMA-complete</br></font>
+      <b><font color="blue">Ref:</b> [<a href="#PM15+">PM15+</a>]</br></font>
+      <!-- Conditionals -->   <!-- Conditionals -->   <!-- Conditionals -->
+      <div class="conditionals-box">
+            <b>Conditionals:</b>
+            <ul>
+                    <li>$J_{ij}\geq 0$</li>
+                    <li>$\Lambda$ representing a 2D triangular lattice</li>
+            </ul>
+      </div>
+      <!-- Reductions -->     <!-- Reductions -->     <!-- Reductions -->
+      <div class="reductions-box">
+            <b>Conditionals:</b>
+                    <p><font class="small">From:</font> The IaF weighted (xyz/.) Hamiltonian on a 2D triangular lattice</p>
+                    <p><font class="small">To:</font> The IaF-(xy/.) Hamiltonian on a 2D triangular lattice</p>
+      </div>
+    </div>
+  </div>
 
 
 <!-- Fermi-Hubbard Model --><!-- Fermi-Hubbard Model --><!-- Fermi-Hubbard Model -->
