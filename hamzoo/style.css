@@ -272,3 +272,13 @@ background-color: black;
 color: red;
 margin: 15px;
 }
+
+.bibtex-box {
+  width: 700px;
+  height: auto;
+  padding: 5pt;
+  background-color: antiquewhite;
+  color: black;
+  margin: 15px;
+  border: 2px solid black;
+}
