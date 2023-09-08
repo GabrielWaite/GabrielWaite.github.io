@@ -282,3 +282,12 @@ margin: 15px;
   margin: 15px;
   border: 2px solid black;
 }
+
+.marika-box {
+  width: 400px;
+  height: auto;
+  padding: 5pt;
+  background-color: green;
+  color: black;
+  margin: 15px;
+  }
