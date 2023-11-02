@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>The Hamiltonian Jungle</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="description" content="..." />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="..." />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="media/style/default.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="media/scripts/theme.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>MathJax={tex:{inlineMath:[["$","$"]]}};</script>
+<!-- <style>
+    @font-face {
+        font-family: 'ComputerModernSans';
+        src: url('/Users/gabewaite/Downloads/HamJungle/media/fonts/cmu.sans-serif-medium.ttf') format('truetype');
+        /* Add additional formats if necessary */
+    }
+
+    .cm-sans-serif {
+        font-family: 'ComputerModernSans', sans-serif;
+    }
+</style> -->
+</head>
+<body>
+<nav class="navbar navbar-expand-lg sticky-top border-bottom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="30" fill="currentColor" viewBox="0 0 16 16" class="d-inline-block align-text-top" >
+            <path d="M5 2V0H0v5h2v6H0v5h5v-2h6v2h5v-5h-2V5h2V0h-5v2H5zm6 1v2h2v6h-2v2H5v-2H3V5h2V3h6zm1-2h3v3h-3V1zm3 11v3h-3v-3h3zM4 15H1v-3h3v3zM1 4V1h3v3H1z"/>
+            </svg>
+            <span>The Hamiltonian Jungle</span>
+        </a>
+        <button class="navbar-toggler p-0 border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle Navigation" >
+        <button class="navbar-toggler p-0 border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle Navigation" >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+<div class="d-flex">
+    <div class="sidebar bg-body-tertiary border-end">
+        <div class="sidebar-menu offcanvas-lg offcanvas-start sticky-lg-top" id="sidebar" data-bs-scroll="true" aria-labelledby="sidebar">
+            <div class="sidebar-offcanvas offcanvas-body p-0 bg-body-tertiary">
+                <div class="container p-0">
+                    <ul class="nav flex-column">
+                        <li><a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#models" aria-expanded="false">Models</a></li>
+                        <ul class="collapse p-0" id="models">
+                            <li><a class="nav-link" href="2-local-pauli.html">2-Local Pauli</a></li>
+                            <li><a class="nav-link" href="bose-hubbard.html">Bose-Hubbard</a></li>
+                            <li><a class="nav-link" href="fermi-hubbard.html">Fermi-Hubbard</a></li>
+                            <li><a class="nav-link" href="general-local.html">General Local</a></li>
+                            <li><a class="nav-link" href="heisenberg.html">Heisenberg</a></li>
+                            <li><a class="nav-link" href="ising.html">Ising</a></li>
+                            <li><a class="nav-link" href="qudit.html">Qudit</a></li>
+                        </ul>
+                        <li><a class="nav-link" href="supplimentary.html">Supplimentary</a></li>
+                        <li><a class="nav-link" href="glossary.html" aria-current="true">Glossary</a></li>
+                        <li><a class="nav-link" href="references.html">References</a></li>
+                        <li><a class="nav-link" href="open-problems.html">Open Problems</a></li>
+                    </ul>
+                    <hr class="m-0 border-top bs-border-color opacity-100" />
+                    <ul class="nav flex-column">
+                        <li><a class="nav-link" href="about.html">About</a></li>
+                        <li><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                    <hr class="m-0 border-top bs-border-color opacity-100" />
+                    <ul class="nav flex-column">
+                        <li><a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#themes" aria-expanded="false">Theme</a></li>
+                        <ul class="collapse p-0" id="themes">
+                            <li><a class="nav-link" href="#" data-bs-theme-value="auto">Auto</a></li>
+                            <li><a class="nav-link" href="#" data-bs-theme-value="light">Light</a></li>
+                            <li><a class="nav-link" href="#" data-bs-theme-value="dark">Dark</a></li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="flex-grow w-100 px-4 pb-4">
+        <div class="d-flex pt-3 pb-2 mb-3 border-bottom">
+            <h2>Glossary</h2>
+        </div>
+        <dl class="row">
+            <dt class="col-sm-3">Arthur</dt>
+            <dd class="col-sm-9">Arthur (verifer) is a computational entity, typically represented as a Turing Machince, thus
+                having bounded capabilities. Arthur's job is verify the solutions for a given decision problem using the
+                proof/witness state provided by Merlin (prover). Based on certain criterion, Arthur will accept or reject with
+                some probability.</dd>
+            <dt class="col-sm-3">Merlin</dt>
+            <dd class="col-sm-9">Merlin (prover) exists as an omniscient, omnipotent and mendacious entity, having unbounded
+                computational resources &mdash; essentially representing an infintely powerful oracle. Additionally, Merlin possess
+                the ability to generate quantum states. The role of Merlin is to convince Arthur (verifer) as to the validity of
+                a decision problem's solution via some proof/witness state.</dd>
+            <dt class="col-sm-3">Polynomial Time</dt>
+            <dd class="col-sm-9">In computational theory, a polynomial time algorithm is an algorithm whose running time is
+                bounded by a polynomial function of the input size. More formally, an algorithm is said to run in polynomial
+                time if there exists a polynomial function $f(n)$, where $n$ represents the size of the input, such that the
+                algorithm's running time is $O\big(f(n)\big)$.</dd>
+            <dt class="col-sm-3">Quantum Computer</dt>
+            <dd class="col-sm-9">A quantum computer is a computational machine that utilises the fundamental principles of
+                quantum mechanics to execute computation tasks. The primitive elements of a quantum computer are quantum bits
+                (qubits) &mdash; naturally exhibiting superposition and entanglement properties. There attributes generate the
+                quantum advantage in information processing not efficiently produced on classical computers.</dd>
+            <dt class="col-sm-3">Reduction (From)</dt>
+            <dd class="col-sm-9">A reduction 'From' one problem $A$, to a problem $B$, refers to reducing (in polynomial time) 
+                or perhaps relaxing conditions on problem $A$ to produce problem $B$. Informally, this can be understood as $B\subseteq A$, 
+                where $A$ is the parent problem we reduce <i>from</i> to obtain $B$.</dd>
+            <dt class="col-sm-3">Reduction (To)</dt>
+            <dd class="col-sm-9">A reduction 'To' one problem $Y$, from a problem $X$, refers to reducing (in polynomial time) 
+                or perhaps relaxing conditions on problem $X$ to produce problem $Y$. Informally, this can be understood as $Y\subseteq X$,
+                where $Y$ is the child problem we reduce <i>to</i> from $X$.</dd>
+            <dt class="col-sm-3">Ground State Energy Problem</dt>
+            <dd class="col-sm-9">The ground state energy problem, synonymous with the local Hamiltonian problem, is a promise problem concerned 
+                with determining the ground state of a given local Hamitlonian. See <a href="glossary.html#LHP_glossary">Local Hamiltonian Problem</a> 
+                defintion for more details.</dd>
+            <dt class="col-sm-3" id="LHP_glossary">Local Hamiltonian Problem</dt>
+            <dd class="col-sm-9">Given a $k=O(1)$ local Hamiltonian, $H$, acting on an $n$&ndash;qubit system, such that, 
+                $$H = \sum_{j=1}^m H_j$$
+                where $||H_j||\leq\mathsf{poly}(n)$, each element of every $H_j$ can be specified in $\mathsf{poly}(n)$ bits and $m\leq\mathsf{poly}(n)$, 
+                the problem statement is to determine which of the following is true, promised one is so: 
+                <ol>
+                    <li>The smallest eigenvalue of $H$ is $\leq a$</li>
+                    <li>All eigenvalues of $H$ are $\geq b$</li>
+                </ol>
+            </dd>
+        </dl>
+        <hr class="border-top bs-border-color opacity-100" />
+        <h3>Complexity Theory</h3>
+        <dl class="row">
+            <dt class="col-sm-3">Polynomial Time &mdash; <span class='cm-sans-serif'>P</span></dt>
+            <dd class="col-sm-9">A decision problem $L$ is in <span class='cm-sans-serif'>P</span> if there exists: a <i>deterministic</i> Turing Machine, $M$, such that,
+                <ol>
+                    <li>For any input $x$, $M$ runs for a time $O(\mathsf{poly}(|x|)\big)$</li>
+                    <li>For all $x\in L$, $M$ outputs $\mathtt{1}$</li>
+                    <li>For all $x\notin L$, $M$ outputs $\mathtt{0}$</li>
+                </ol>
+            </dd>
+            <dt class="col-sm-3">Bounded&ndash;Error Probabilistic Polynomial &mdash; <span class="cm-sans-serif">BPP($\mathsf{a}$,$\mathsf{b}$)</span></dt>
+            <dd class="col-sm-9">A decision problem $L$ is in <span class="cm-sans-serif">BPP($\mathsf{a}$,$\mathsf{b}$)</span> if there exists: a <i>Probabilistic</i> Turing Machine, $M$, such that,
+                <ol>
+                    <li>For any input $x$, $M$ runs for a time $O(\mathsf{poly}(|x|))$</li>
+                    <li>For all $x\in L$, $\text{Pr}\left[M(x)=\mathtt{1} \right] \geq a$</li>
+                    <li>For all $x\notin L$, $\text{Pr}\left[M(x)=\mathtt{1} \right] \leq b$</li>
+                </ol>
+            </dd>
+            <dt class="col-sm-3">Nondeterministic Polynomial &mdash; <span class="cm-sans-serif">NP</span></dt>
+            <dd class="col-sm-9">A decision problem $L$ is in <span class="cm-sans-serif">NP</span> if there exists: a <i>deterministic</i> verification Turing Machine, $M$, and a polynomial, $\mathsf{poly}(|x|)$, such that, 
+                <ol>
+                    <li>For all $x\in L$, $M(x,\mathsf{poly}(|x|))=\mathtt{1}$</li>
+                    <li>For all $x\notin L$, $M(x,\mathsf{poly}(|x|))=\mathtt{0}$</li>
+                </ol>
+            </dd>
+            <dt class="col-sm-3">Merlin&ndash;Arthur &mdash; <span class="cm-sans-serif">MA($\mathsf{a}$,$\mathsf{b}$)</span></dt>
+            <dd class="col-sm-9">A decision problem $L$ is in <span class="cm-sans-serif">MA($\mathsf{a}$,$\mathsf{b}$)</span> if there exists: a <i>deterministic</i> verification Turing Machine, $M$, and a polynomial, $\mathsf{poly}(|x|)$, such that, 
+                <ol>
+                    <li>For all $x\in L$, there exists a proof state, $z \in \{0,1\}^{\mathsf{poly}(|x|)}$, such that, $\text{Pr}\left[M(x,z)=\mathtt{1} \right] \geq a$</li>
+                    <li>For all $x\notin L$, for any proof state, $z \in \{0,1\}^{\mathsf{poly}(|x|)}$, then, $\text{Pr}\left[M(x,\mathsf{poly}(|x|))=\mathtt{1} \right] \leq b$</li>
+                </ol>
+            </dd>
+            <dt class="col-sm-3">Bounded&ndash;Error Quantum Polynomial &mdash; <span class="cm-sans-serif">BQP($\mathsf{a}$,$\mathsf{b}$)</span></dt>
+            <dd class="col-sm-9">A decision problem $L$ is in <span class="cm-sans-serif">BQP($\mathsf{a}$,$\mathsf{b}$)</span> if there exists: a polynomial&ndash;time uniform family of quantum circuits, $Q = \{Q_n | n \in \mathbb{N}\}$, such that,
+                <ol>
+                    <li>$Q_n$ has $n$&ndash;qubits as input and $1$ qubit as output</li>
+                    <li>For all $x\in L$, $\text{Pr}\left[Q(x)=\mathtt{1} \right] \geq a$</li>
+                    <li>For all $x\notin L$, $\text{Pr}\left[Q(x)=\mathtt{1} \right] \leq b$</li>
+                </ol>
+            </dd>
+            <dt class="col-sm-3">Quantum Merlin&ndash;Arthur &mdash; <span class="cm-sans-serif">QMA($\mathsf{a}$,$\mathsf{b}$)</span></dt>
+            <dd class="col-sm-9">A promise problem $L$ is in <span class="cm-sans-serif">QMA($\mathsf{a}$,$\mathsf{b}$)</span> if there exists: a polynomial quantum verifier, $V$, and a polynomial, $\mathsf{poly}(|x|)$, for $x\in L$, such that;
+                <ol>
+                    <li><strong>Completeness:</strong> For all $x\in L$, there exists a quantum proof state, $\ket{\psi}\in\mathcal{B}^{\mathsf{poly}(|x|)}$, such that, $\text{Pr}\left[V(x,\ket{\psi})=\mathtt{1} \right] \geq c$</li>
+                    <li><strong>Soundness:</strong> For all $x\notin L$, for any quantum proof state, $\ket{\psi}\in\mathcal{B}^{\mathsf{poly}(|x|)}$, then, $\text{Pr}\left[V(x,\ket{\psi})=\mathtt{1} \right] \leq s$</li>
+                </ol>
+            </dd>
+        </dl>
+        <hr class="border-top bs-border-color opacity-100" />
+        <h3>Model Definitions</h3>
+        For each model defintion below, we take a very general approach. Moreover, the exact interaction type is not specfied nor is the underlying geometry. We represent the underlying graph that each Hamiltonian may lie on 
+        with $\Lambda$. Particles involved in the interactions of a given Hamiltonian are labeled using Romain indicies, $i,j,\ldots$. It can sometimes be implied what the interaction distance is from the underlying geometry. For example, on a 
+        2D square lattice, the interactions are assumed to be nearest neighbor ones (unless explicitly specified to be something else). However, a spatially sparse lattice need not suffer the same restriction.
+<br>
+<br>
+        The defintions outlined here are not exhaustive but represent a large proportion of commonly occuring examples. As a final point, any interaction strengths, $J_{ij}, K, \ldots$ also have no predetermined value in the general setting.
+        To remain consistent with the website's information we also propose a novel naming convention for Pauli Hamiltonians. The aim is to provide a universal naming convention that completely specifies the terms present, and to minimize 
+        ambiguities in model names. The focus of this work is $2$&ndash;local Hamiltonians, however, the convention is adaptable to other locality degrees. We provide illustrative examples, where applicable, to emphasise each aspect.
+<br>
+<br>
+<div style="line-height: 2.5em;">
+        <ol>
+            <li>2&ndash;local and 1&ndash;local terms are divided via '$/$' where the left hand side represents 2&ndash;local terms.</li>
+            <li>Repeated ($XX, YY, ZZ$), are represented by a single letter such that the repetition is implied for terms on the left.</li>
+            <ul>
+                <li>(<span class="cm-serif-roman-small">x/z</span>)&ndash;H = $\displaystyle\sum_{i,j} J_{ij}X_iX_j + \displaystyle\sum_{i,j} h_iZ_i$</li>
+            </ul>
+            <li>Cross ($XZ, YX, ZY, \ldots$), the terms are bracketed $[*]$ or $[\![ * ]\!]$ (for when both cross terms appear).
+                <ol tpye="a">
+                    <li>If it is known that both cross terms are present under different general parameters, then the superscript $*$ can be used.</li>
+                </ol>
+                <ul>
+                    <li>(<span class="cm-serif-roman-small">[xz]/.</span>)&ndash;H = $\displaystyle\sum_{i,j} Q_{ij} X_iZ_j$</li>
+                    <li>(<span class="cm-serif-roman-small">$[\![$xy$]\!]$/z</span>)&ndash;H = $\displaystyle\sum_{i,j} P_{ij}\big( X_iY_j + Y_iX_j \big) + \displaystyle\sum_{i,j} h_iZ_i$</li>
+                    <li>(<span class="cm-serif-roman-small">[xz]-[zx]/.</span>)&ndash;H = (<span class="cm-serif-roman-small">$[\![$xy$]\!]$<sup>*</sup>/.</span>)&ndash;H = $\displaystyle\sum_{i,j} Q_{ij} X_iZ_j + T_{ij}Z_iX_j$</li>
+                </ul>
+            </li>
+            <li>The name follows the lexicographical ordering.</li>
+            <li>Terms which adhere to different parameters are separated via a `$-$'.
+                <ul>
+                    <li>(<span class="cm-serif-roman-small">x-yz/.</span>)&ndash;H = $\sum_{i,j} J_{ij}X_iX_j + K_{ij}\big(Y_iY_j + Z_iZ_j\big)$</li>
+                </ul>
+            </li>
+            <li>Each parameter, $J, K, \ldots$, is assumed to be in $\mathbb{R}$.
+                <ol tpye="a">
+                    <li>If all parameters are $\in\mathbb{R}^\pm$ then use the superscript $\pm$.
+                        <ul>
+                            <li>(<span class="cm-serif-roman-small">x/z</span>)<sup>+</sup>&ndash;H = $\displaystyle\sum_{i,j} J_{ij}^{^{(\geq 0)}}X_iX_j + \displaystyle\sum_{i,j} h_i^{^{(\geq 0)}}Z_i$</li>
+                        </ul>
+                    </li>
+                    <li>Underline the terms for which the parameters are uniform.
+                        <ul>
+                            <li>(<span class="cm-serif-roman-small"><u>[xz]</u><sup>-</sup>-[zx]/.</span>)&ndash;H = $\displaystyle\sum_{i,j} Q^{^{(\leq 0)}} X_iZ_j + T_{ij}Z_iX_j$</li>
+                        </ul>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+</div>
+        <div class="alert alert-light" role="alert">
+            <h4>General Heisenberg Model</h4>
+            <div class="alert alert-dark" role="alert">
+                $$
+                H=\sum_{i,j\in\Lambda}J_{ij}\big(X_iX_j + Y_iY_j + Z_iZ_j\big)
+                $$
+              </div>
+              It is common for the Heisenberg Hamiltonian to be defined with a single external field. In this work we stick to the above defintion for clarity. 
+              Within complexity classifications, external fields can have a significant impact on the outcome. We would therefore refer to a Heisenberg Hamiltonian <i>with external fields</i> in that context; 
+              it is also important to ensure the specification of the external fields.
+          </div>
+          
+    </main>
+</div>
+</body>
+</html>
