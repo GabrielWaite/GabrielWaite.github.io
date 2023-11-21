@@ -14,6 +14,13 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>MathJax={tex:{inlineMath:[["$","$"]]}};</script>
+<style>
+    .column {
+	  float: left;
+	  width: 50%;
+	  padding: 5px;
+	}
+</style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg sticky-top border-bottom">
@@ -38,9 +45,10 @@
                     <ul class="nav flex-column">
                         <li><a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#models" aria-expanded="false">Models</a></li>
                         <ul class="collapse p-0" id="models">
-                            <li><a class="nav-link" href="2-local-pauli.html">2-Local Pauli</a></li>
-                            <li><a class="nav-link" href="bose-hubbard.html">Bose-Hubbard</a></li>
-                            <li><a class="nav-link" href="fermi-hubbard.html">Fermi-Hubbard</a></li>
+                            <li><a class="nav-link" href="2-local-pauli.html">2&ndash;Local Pauli</a></li>
+                            <li><a class="nav-link" href="bose-hubbard.html">Bose&ndash;Hubbard</a></li>
+                            <li><a class="nav-link" href="fermi-hubbard.html">Fermi&ndash;Hubbard</a></li>
+                            <li><a class="nav-link" href="general.html">General</a></li>
                             <li><a class="nav-link" href="general-local.html">General Local</a></li>
                             <li><a class="nav-link" href="heisenberg.html">Heisenberg</a></li>
                             <li><a class="nav-link" href="ising.html">Ising</a></li>
@@ -78,24 +86,86 @@
         <p>What is a qubit?</p>
         
         <h4>Perturbation Gadget Jungle</h4>
-        <hr class="border-top bs-border-color opacity-100" />
-            The rationale behind the use of a perturbation techniques becomes evident through a straightforward illustration. At the heart of all subsequent gadget constructions lies the concept of a `mediator gadget'. As the name implies, a mediator gadget serves as an intermediary in mediating a specific interaction between two particles.  To elaborate, consider a rudimentary example involving a two&ndash;particle ferromagnetic interaction, where spins tend to align. In this scenario, we can introduce a mediator gadget that engages in an antiferromagnetic interaction with each of the original particles. Assuming, without loss of generality, the original spins are vertically aligned, the net outcome of the mediator particle being in a downward spin state is an effective ferromagnetic interaction between the original particles. Moreover, the two original particles have indirectly interacted.
+            The rationale behind the use of perturbation techniques becomes evident through a straightforward illustration. 
+            At the heart of all subsequent gadget constructions lies the concept of a <i>mediator gadget</i>.
+            As the name implies, a mediator gadget serves as an intermediary, facilitating a specific interaction between two particles.
+            To elaborate, consider a rudimentary example involving a two&ndash;particle ferromagnetic interaction, where spins tend to align. 
+            Here, we introduce a mediator gadget that engages in an antiferromagnetic interaction with each of the original particles. 
+            Assuming, without loss of generality, that the original spins are vertically aligned, the net outcome of the mediator particle being 
+            in a downward spin state is an effective ferromagnetic interaction between the original particles. 
+            Moreover, this interaction indirectly connects the two original particles.
+            <div>
+                <div class="column">
+                    <img src="media/graphics/ferromagnetic_interaction.jpeg", width="300", height="200">
+                </div>
+                <div class="column">
+                    <img src="media/graphics/antiferromagnetic_interaction.jpeg", width="300", height="200">
+                </div>
+            </div>
         </br>
         </br>
-            The intricacies of perturbation gadgets involve complex mathematics. However, a somewhat informal yet instructive overview can be provided as follows: When faced with a pre&ndash;existing interaction between particles $i$ and $j$, the introduction of a mediator qubit $c$, serves to produce an effective indirect interaction between $i$ and $j$. This newly formed interaction approximates the original, while preserving the low&ndash;energy spectrum.
+            The intricacies of perturbation gadgets involve complex mathematics. 
+            However, a somewhat informal yet instructive overview can be provided as follows: 
+            When faced with a pre&ndash;existing interaction between particles $i$ and $j$, the introduction of a mediator qubit $c$, serves to 
+            produce an effective indirect interaction between $i$ and $j$. 
+            This newly formed interaction approximates the original, while preserving the low&ndash;energy spectrum.
         </br>
         </br>
-            The gadgets we explore below are further developed in their respective arts. We provide a high&ndash;level overview of the construction and possible use cases. The general construction procedure is as follows:
+            The gadgets we explore below are further developed in their respective arts. 
+            We provide a high&ndash;level overview of the construction and possible use cases. 
+            The general construction procedure is as follows:
         <ol>
             <li>Define the target Hamiltonian term, $H_{\text{targ.}}$</li>
             <li>Define the logical target Hamiltonian via some isometry, $\bar{H}_{\text{targ.}}$</li>
             <li>Define the perturbation Hamiltonian with is the sum of the unperturbed Hamiltonian and the perturbation term, $\widetilde{H} = H + V$</li>
-            <li>Use the perturbation theory expansion of the low&ndash;energy spectrum truncated to an appropriate order to define the effective Hamiltonian, $H_{\text{eff.}} \approx \widetilde{H}_{-}$</li>
+            <li>Use the perturbation theory expansion of the low&ndash;energy spectrum truncated to an appropriate order to define the effective Hamiltonian, 
+                $H_{\text{eff.}} \approx \widetilde{H}_{-}$</li>
         </ol>
-        One subtle condition that influences the construction of the gadgets is the allowed interaction terms of the Hamiltonian in question. For example, as it will be shown, to introduce a mediator qubit $c$ that interacts with some system qubit $i$ via the Pauli&ndash;$X$ unitary, demands the original Hamiltonian must permit such interactions. More to this point, say a Hamiltonian instance has interactions from the set $\{Y,Z\}$, the an interaction term between a mediator and a system qubit of the form $X_c\otimes Y_j$ is illegal as such a term is not allowed in this system.
+        One subtle condition that influences the construction of the gadgets is the allowed interaction terms of the Hamiltonian in question. 
+        For example, as it will be shown, to introduce a mediator qubit $c$ that interacts with some system qubit $i$ via the Pauli&ndash;$X$ unitary, 
+        demands the original Hamiltonian must permit such interactions. 
+        More to this point, say a Hamiltonian instance has interactions from the set $\{Y,Z\}$, the an interaction term between a mediator and a system 
+        qubit of the form $X_c\otimes Y_j$ is illegal as such a term is not allowed in this system.
         </br>
         </br>
-        It should be noted that there are certain conditions that must be in place in order for the proper use of the perutbation gadgets. These ideas are not developed here, rather we provide an overview of a <i>use case</i> for each gadget. See [references] for further information on the exact conditions of use.
+        It should be noted that there are certain conditions that must be in place in order for the proper use of the perutbation gadgets. 
+        These ideas are not developed here, rather we provide an overview of a <i>use case</i> for each gadget. See [references] for further information on the exact conditions of use.
+        </br>
+        </br>
+        Now we introduce a more formal, mathemtical defintion to perturbation gadgets. Note that this is not a full treatment but provides an overview of the equations used and the 
+        rationale behind the justification at each step. Remember, we defined the perturbed Hamiltonian as, $\widetilde{H} = H + V$. The unperturbed Hamiltonian, $H$, is chosen such that
+        its Hilbert space is <i>split</i>, i.e. $\mathcal{H} = \mathcal{L}_- \oplus \mathcal{L}_+$. We denote $\mathcal{L}_-$ as the <i>low&ndash;energy spectrum</i> and $\mathcal{L}_+$ 
+        the <i>high&ndash;energy spectrum</i>. The <i>spectral gap</i> is defined as the distance between the maximal low&ndash;eigenenergy and the minimal high&ndash;eigenenergy.
+        The unpertubred Hamiltonian can be thought of as a <i>penalty</i> Hamiltonian, in that, if a state in the high&ndash;energy spectrum of $H$, it suffers a large penalty. For
+        a natural system, such states are underiserable. For analysis about the spectral information, it is useful to introduce the resolvent operator. The resolvent operator is 
+        formally defined as:
+        $$
+            G(z) := (z\mathbb{I} - H)^{-1} = \sum_j (z - \lambda_j)^{-1}\ketbra{\psi_j}{\psi_j}
+        $$
+        Notice, $G(z)$, has poles at the eigenvalues of $H$ &mdash; the resolvent is undefined on the spectrum of $H$. One property of the resolvent that will aid these perturbation analyses is 
+        the fact that the poles of $G(z)$ are invariant under projections! We also define the self&ndash;energy operator,
+        $$
+            \Sigma_{-}(z) = z\mathbb{I} - \widetilde{G}^{-1}_{-}(z)
+        $$
+        The subscripts represent a projection on the low&ndash;energy subspace. The term $\widetilde{G}^{-1}_{-}(z)$ represents the perturbation Hamiltonian's resolvent operator projected onto 
+        the low&ndash;energy subspace. The self&ndash;energy operator approximates $\widetilde{H}_{-}$. Furthermore, the self&ndash;energy operator has a Taylor expansion we must truncate and hence 
+        derive an effective Hamiltonian from, $H_{\text{eff}} :\approx \Sigma_{-}(z)$. The form of the effective Hamiltonian is chosen to minimic $\bar{H}_{\text{targ}}$. In this way, we have an 
+        approximation for the low&ndash;energy spectrum of $H_{\text{targ}}$ using $H_{\text{eff}}$.
+        To spare further mathematical details, we finish this section by mentioning how these ideas combine to
+        help us in the subsequent analyses; the discussion follows from the structure of the above steps.
+        </br>
+        </br>
+        Given some target Hamiltonian, $H_{\text{targ.}}$, our goal is to approximate the low&ndash;energy spectrum of $H_{\text{targ.}}$ using another, different Hamiltonian, comprised of terms adhering to 
+        certain conditions; for example, a lower degree of locality. In order to do this, we use perturbation theory and mediator gadgets. Define an isometry such that, 
+        $\bar{H}_{\text{targ}} \sim H_{\text{targ}}\otimes\ketbra{0}{0}$. We want to find $\bar{H}_{\text{targ}}$. To do so, we define a perturbation Hamiltonian, $\widetilde{H} = H + V$, where the spectrum of $H$ is 
+        split. We analyse the low&ndash;energy spectrum of $\widetilde{H}$ and truncate the series expansion of its self&ndash;energy operator. In doing so we define an effective Hamiltonian, $H_{\text{eff.}}$. 
+        By spectral analysis, given the overlap of $H_{\text{eff.}}$ with $\Sigma_{-}(z)$, we find that the low&ndash;energy eigenvalues of each are close. Hence, we have found an alternate Hamiltonian, with the 
+        desired features, that approximates the original Hamiltonian in question.
+        </br>
+        </br>
+        As a final remark, I like to think of perturbation gadget reductions in the following way: "I know how hard it is to find the ground state energy of Hamiltonian $A$. 
+            If I can use Hamiltonian $A$ to simulate Hamiltonian $B$ such that their low&ndash;energy sectors are $\epsilon$&ndash;close, then finding the ground state energy of Hamiltonian $B$ is at least as hard as Hamiltonian $A$."
+        A good, trivial example using the first example above is to think about the fact that an antiferromagnetic system might be able to simulate the general system and hence the antiferromagnetic system lies in the same complexity class.
         </br>
         </br>
         <h5>Oliveira and Terhal Gadgets</h5>
@@ -105,25 +175,111 @@
                     data-bs-target="#OTSubdivison" aria-expanded="false">Subdivision</button>
                 <div id="OTSubdivison" class="accordion-collapse collapse">
                     <div class="accordion-body pt-0">
-                        Given two disjoint subsets of qubits $a$ and $b$, influenced by some $k$--local interactions, succinctly expressed as $A\otimes B$. Let the cardinality of $a$ and $b$ be upper bounded by $\lceil k/2 \rceil$; the goal of the subdivision gadget is to introduce a mediator qubit, $c$, to reduce the degree of locality and approximate the original $k$--local interaction $A\otimes B$, using $(\lceil k/2 \rceil + 1)$--local interactions. 
+                        Given two disjoint subsets of qubits $a$ and $b$, influenced by some $k$&ndash;local interactions, succinctly expressed as $A\otimes B$,
+                        where $A$ acts over qubits $a$ and $B$ over qubits $b$. More specifically, $A = \bigotimes_{a_i \in a}A_{a_i}$ and $B = \bigotimes_{b_i \in b}B_{b_i}$.
+                        Let the cardinality of $a$ and $b$ be upper bounded by $\lceil k/2 \rceil$; the goal of the subdivision gadget is to introduce a mediator qubit, $c$, 
+                        to reduce the degree of locality and approximate the original $k$&ndash;local interaction $A\otimes B$, using $(\lceil k/2 \rceil + 1)$&ndash;local interactions. 
+                        <div>
+                            <div class="column">
+                                <img src="media/graphics/ot_subdivision_one.PNG", width="300", height="200">
+                            </div>
+                            <div class="column">
+                                <img src="media/graphics/ot_subdivision_two.png", width="300", height="200">
+                            </div>
+                        </div>
                     </br>
                     </br>
-                        This gadget can be used to reduce $k$--local interactions, for $k>3$, to $3$--local ones via repeated application `in parallel'. This can trivially be seen with a small calculation.
+                        This gadget can be used to reduce $k$&ndash;local interactions, for $k>3$, to $3$&ndash;local ones via repeated application 'in parallel'. 
+                        This can trivially be seen with a small calculation. For this example, the isometry is defined as, $\bar{H}_{\text{targ}} \sim H_{\text{targ}}\otimes\ketbra{0}{0}$; 
+                        where the final '$\ketbra{0}{0}$' is for the mediator qubit and, as we will see, is the ground state.
+                        We define the following equations:
+                        $$\widetilde{H} = H + V$$
+                        $$H = \Delta \ketbra{1}{1}_c$$
+                        $$V_{\text{main}} = (A - B)X_c$$
+                        $$V_{\text{extra}} = \frac{1}{2}(A^2 + B^2)$$
+                    </br>
+                    </br>
+                        Up to second order in the self&ndash;energy expansion, we have
+                        $$
+                            \begin{align*}
+                                H_{\text{eff.}} &= H_{-} + V_{-} + V_{-+}\frac{-1}{\Delta}V_{+-} \\
+                                                &= 0 + \frac{1}{2}\left(A^2 + B^2 \right)\ketbra{0}{0} - \frac{1}{\Delta}\left(\frac{\Delta}{2} (A^2+B^2 - 2AB) \right)\ketbra{0}{0} \\
+                                                &= AB\ketbra{0}{0}
+                            \end{align*}
+                        $$
                     </div>
                 </div>
             </div>
             <div class="accordion-item">
                 <button class="accordion-button collapsed shadow-none fw-medium" data-bs-toggle="collapse"
-                    data-bs-target="#OTCrossing" aria-expanded="false">Crossing</button>
+                    data-bs-target="#OTCrossing" aria-expanded="false">Fork</button>
                 <div id="OTCrossing" class="accordion-collapse collapse">
-                    <div class="accordion-body pt-0">Text</div>
+                    <div class="accordion-body pt-0">
+                        Given a set of qubits interacting as shown below (left), the goal of this gadget is to introduce a mediator qubit that produces an effective target 
+                        interaction of the form, $H_{\text{targ.}} = A\otimes B + A\otimes C$. Notice, this gadget reduces the locality of certain qubits and also separates
+                        the local interactions.
+                        <div>
+                            <div class="column">
+                                <img src="media/graphics/ot_fork_one.PNG", width="300", height="200">
+                            </div>
+                            <div class="column">
+                                <img src="media/graphics/ot_fork_two.png", width="300", height="200">
+                            </div>
+                        </div>
+                        For this gadget we choose,
+                        $$
+                            \begin{align*}
+                                \tilde{H} &= H+V \\
+                                H &= \Delta\ketbra{1}{1}_d \\
+                                V &= \sqrt{\frac{\Delta}{2}}V_{\text{main}} + V_{\text{extra,1}} + V_{\text{extra,2}}\\
+                                V_{\text{main}} &= \left(A-B-C\right)X_d \\
+                                V_{\text{extra,1}} &= \frac{1}{2}\left(A^2+B^2+C^2\right) \\
+                                V_{\text{extra,2}} &= - BC
+                            \end{align*}
+                        $$
+                        In this example we have two extra perturbation terms. This is because without the second the gadget produces and extra connection between qubits $b$ and $c$. 
+                        By including $V_{\text{extra,2}}$ we can remove this unwanted term.
+                        Taking the series expansion, we have,
+                        $$
+                            H_{\text{eff}} = (AB+AC)\ketbra{0}{0}
+                        $$
+                    </div>
                 </div>
             </div>
             <div class="accordion-item">
                 <button class="accordion-button collapsed shadow-none fw-medium" data-bs-toggle="collapse"
-                    data-bs-target="#OTFork" aria-expanded="false">Fork</button>
+                    data-bs-target="#OTFork" aria-expanded="false">Crossing</button>
                 <div id="OTFork" class="accordion-collapse collapse">
-                    <div class="accordion-body pt-0">Text</div>
+                    <div class="accordion-body pt-0">
+                        This gadget can be seen as a combination of the previous gadgets.
+                        The goal is to introduce a mediator qubit where there exists a crossing in the underlying interaction graph, 
+                        such that the interaction with said mediator produces the effective tagret interaction of the form, $H_{\text{targ.}} = AD + BC$.
+                        This gadget removes the non--planar crossing but increases the degree of the mediator qubit to $4$. 
+                        This construction also suffers from many unwanted extra interaction terms.
+                        <div>
+                            <div class="column">
+                                <img src="media/graphics/ot_cross_one.PNG", width="300", height="200">
+                            </div>
+                            <div class="column">
+                                <img src="media/graphics/ot_cross_two.png", width="300", height="200">
+                            </div>
+                        </div>
+                        We therefore choose,
+                        $$
+                            \begin{align*}
+                                \tilde{H} &= H+V \\
+                                H &= \Delta\ketbra{1}{1}_d \\
+                                V &= \sqrt{\frac{\Delta}{2}}V_{\text{main}} + V_{\text{extra,1}} + V_{\text{extra,2}}\\
+                                V_{\text{main}} &= \left(A-C+B-D\right)X_d \\
+                                V_{\text{extra,1}} &= \frac{1}{2}\left(A^2+B^2+C^2+D^2\right) \\
+                                V_{\text{extra,2}} &= - (AB+BC+CD+DA)
+                            \end{align*}
+                        $$
+                        Taking the series expansion, we have,
+                        $$
+                            H_{\text{eff}} = (AC + BD)\ketbra{0}{0}
+                        $$
+                    </div>
                 </div>
             </div>
             <div class="accordion-item">
@@ -135,9 +291,34 @@
             </div>
             <div class="accordion-item">
                 <button class="accordion-button collapsed shadow-none fw-medium" data-bs-toggle="collapse"
-                    data-bs-target="#OT3-to-2Local" aria-expanded="false">3-to-2 Local</button>
+                    data-bs-target="#OT3-to-2Local" aria-expanded="false">3&ndash;to&ndash;2 Local</button>
                 <div id="OT3-to-2Local" class="accordion-collapse collapse">
-                    <div class="accordion-body pt-0">Text</div>
+                    <div class="accordion-body pt-0">
+                        The 3&ndash;to&ndash;2 local gadget presented by <a href="references.html#OT08">[OT08]</a> is not the only gadget of this type.
+                        Work by Kempe, Kitaev and Regev, <a href="references.html#KKR05">[KKR05]</a> previously introduce a 3&ndash;to&ndash;2 local gadget in 
+                        their proof that $2$&ndash;local Hamiltonians are <span class="cm-sans-serif"> QMA</span>&ndash;complete. 
+                        The gadget here takes a different appoach to acheive the same answer. The 3&ndash;to&ndash;2 local gadget here uses third&ndash;order 
+                        perturbation theory, unlike the previous examples that use only second&ndash;order.
+                        The desired target Hamiltonian, $H_{\text{targ.}} = A\otimes B\otimes C$.
+                        A diagrammatic representation for this gadget is difficult to define, however, intuition from previous constructions renders the understanding 
+                        of the perturbation term $V$ much easier. 
+                        We choose,
+                        $$
+                            \begin{align*}
+                                \tilde{H} &= H+V \\
+                                H &= \Delta\ketbra{1}{1}_d \\
+                                V &= \Delta^{2/3}V_{\text{main}} + \Delta^{1/3}V_{\text{extra}}' + V_{\text{extra}}\\
+                                V_{\text{main}} &= \frac{1}{\sqrt{2}}\left(A-B\right)X_d + C\otimes\ketbra{1}{1}_d \\
+                                V_{\text{extra}}' &= \frac{1}{2}\left(A-B\right)^2 \\
+                                V_{\text{extra}} &= \frac{1}{2}\left(A^2+B^2\right)\otimes C
+                            \end{align*}
+                        $$
+                        Taking the series expansion to third order, we have,
+                        $$
+                            H_{\text{eff}} = (ABC)\ketbra{0}{0}
+                        $$
+                    <!-- </div> -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -146,16 +327,61 @@
         <div class="accordion accordion-flush">
             <div class="accordion-item">
                 <button class="accordion-button collapsed shadow-none fw-medium" data-bs-toggle="collapse"
-                    data-bs-target="#BLZX" aria-expanded="false">$ZX$</button>
+                    data-bs-target="#BLZX" aria-expanded="false">$ZZXX$</button>
                 <div id="BLZX" class="accordion-collapse collapse">
-                    <div class="accordion-body pt-0">Text</div>
+                    <div class="accordion-body pt-0">
+                        This gadget and the one below take a slightly different approach that those above. 
+                        Instead of approximating a completely new Hamiltonian using a gadgets, <a href="references.html#OT08">[OT08]</a>
+                        aim to create <i>additional</i> terms for a given Hamiltonian.
+                        The $ZX$ gadget is used with the (<span class="cm-serif-roman-small">x&ndash;z/x&ndash;z</span>) Hamiltonian to 
+                        create the full set of interactions: $\{\mathbb{I},\mathbb{I}\otimes X,\mathbb{I}\otimes Z,X\otimes \mathbb{I},Z\otimes \mathbb{I}, X\otimes X,X\otimes Z,Z\otimes X,Z\otimes Z\}$.
+                        As mentioned in the introductory section, not all Hamiltonians have all possible combinations of Pauli matrices. 
+                        The (<span class="cm-serif-roman-small">x&ndash;z/x&ndash;z</span>) Hamiltonian does not have terms like $XZ$ and $ZX$.
+                        Such terms are what the $ZZXX$ gadget aim to create.
+                        This gadget exploits a pseudo&ndash;3&ndash;local term of the form, $A\otimes\mathbb{I}\otimes C$, where, $A, C \in \{X, Z\}$.
+                        Framing the problem this way allows for the use of the 3&ndash;to&ndash;2 local gadget from <a href="references.html#OT08">[OT08]</a>.
+                        $$
+                            \begin{align*}
+                                \tilde{H} &= H+V \\
+                                H &= \Delta\ketbra{1}{1}_d \\
+                                V &= \Delta^{2/3}V_{\text{main}} + \Delta^{1/3}V_{\text{extra}}' + V_{\text{extra}} + \Gamma \\
+                                V_{\text{main}} &= \frac{1}{\sqrt{2}}\left(X_i-\mathbb{I}\right)X_k + Z_j\otimes\ketbra{1}{1}_k \\
+                                V_{\text{extra}}' &= \frac{1}{2}\left(X_i-\mathbb{I}\right)^2 = \mathbb{I} - X_i \\
+                                V_{\text{extra}} &= \frac{1}{2}\left(X_i^2+\mathbb{I}\right)\otimes Z_j = Z_{j}
+                            \end{align*}
+                        $$
+                        Where $\Gamma$ represents the original Hamiltonian terms. 
+                        Notice all the interactions in the above terms are valid with respect to the (<span class="cm-serif-roman-small">x&ndash;z/x&ndash;z</span>) Hamiltonian.
+                        Up to third order, it can be shown,
+                        $$
+                            H_{\text{eff}} = \left(\Gamma + X_iZ_j\right)\ketbra{0}{0}_k
+                        $$
+                    </div>
                 </div>
             </div>
             <div class="accordion-item">
                 <button class="accordion-button collapsed shadow-none fw-medium" data-bs-toggle="collapse"
-                    data-bs-target="#BLZZXX" aria-expanded="false">$ZZXX$</button>
+                    data-bs-target="#BLZZXX" aria-expanded="false">$ZX$</button>
                 <div id="BLZZXX" class="accordion-collapse collapse">
-                    <div class="accordion-body pt-0">Text</div>
+                    <div class="accordion-body pt-0">
+                        The process for creating the additional $XX$ and $ZZ$ terms, absent in the (<span class="cm-serif-roman-small">$[\![$xz$]\!]$<sup>*</sup>/x&ndash;z</span>) Hamiltonian,
+                        is a simple application of the subdivision gadget seen in <a href="references.html#OT08">[OT08]</a>.
+                        Here we cover how to construct $ZZ$ interactions, however, constructing $XX$ interactions is an analogus process and can easily be seen by 
+                        a Hadamard conjugation mapping.
+                        We define,
+                        $$
+                            \begin{align*}
+                                \tilde{H} &= H+V \\
+                                H &= \Delta\ketbra{1}{1}_c \\
+                                V &= \Delta^{1/2}V_{\text{main}} + \Gamma \\
+                                V_{\text{main}} &= \frac{1}{\sqrt{2}}\left(Z_a-Z_b\right)X_c
+                            \end{align*}
+                        $$
+                        To second&ndash;order truncation, it can be shown,
+                        $$
+                            H_{\text{eff}} = \left(\Gamma +Z_aZ_b\right)\ketbra{0}{0}_c
+                        $$
+                    </div>
                 </div>
             </div>
         </div>
@@ -166,28 +392,145 @@
                 <button class="accordion-button collapsed shadow-none fw-medium" data-bs-toggle="collapse"
                     data-bs-target="#SVParameterFixing" aria-expanded="false">Parameter Fixing</button>
                 <div id="SVParameterFixing" class="accordion-collapse collapse">
-                    <div class="accordion-body pt-0">Text</div>
+                    <div class="accordion-body pt-0">
+                        The goal of the parameter fixing gadget, as the name suggests, is a reduction from arbitrary Pauli couplings to 
+                            ones with constant interaction strength and different Pauli operators.
+                        More formally, we start with, $\lambda_{ij} P_i \otimes Q_j$ where $P,Q \in \{\mathbb{I},X,Y,Z\}$, by using a 
+                            strong magnetic field and a mediator gadget, the desired, tunable interaction can be found.
+                        The strngth of the interaction is given by the angle in a chosen plane, for this example, the $XY$ plane.
+                        From this point we drop the subscripts.
+                        To reiterate the motivation slightly, note the goal of this gadget is to simulate the ground state of some $\lambda P\otimes Q$ 
+                            interaction using another, mediated interaction, that has a constant interaction strength. 
+                        In this way, we can then say, the mediated interaction is sufficient to approximation the ground space.
+                        These reductions allow for external fields and hence the $V_{\text{extra}}$ terms present in previous constructions need not be present.
+                        We choose,
+                        $$
+                        \begin{align}
+                            \tilde{H} &= H+V \\
+                            H &= \Delta_P\ketbra{e_\phi}{e_\phi}_k \\
+                            V &= \sqrt{\frac{\Delta_P}{2}}V_{\text{main}}\\
+                            V_{\text{main}} &= \left(PX_k - QY_k\right) 
+                            <!-- V_{\text{extra}} &= 2\left(\cos\phi P + \sin\phi Q \right) -->
+                        \end{align}
+                        $$
+                        Where $\ket{e_\phi} = \frac{1}{\sqrt{2}}\left(\ket{0} - e^{i\phi}\ket{1} \right)$. The projected $X$ and $Y$ matrices are no longer as straightforward as previous examples. 
+                        $$
+                        \begin{align}
+                            X_{--} &= \frac{1}{2}\cos\phi\ketbra{g}{g} \\
+                            X_{+-} &= \frac{i}{2}\sin\phi\ketbra{e}{g} \\
+                            X_{-+} &= \frac{-i}{2}\cos\phi\ketbra{g}{e} \\
+                            Y_{--} &= \frac{1}{2}\sin\phi\ketbra{g}{g} \\
+                            Y_{+-} &= \frac{-i}{2}\cos\phi\ketbra{e}{g} \\
+                            Y_{-+} &= \frac{i}{2}\sin\phi\ketbra{g}{e} 
+                        \end{align}
+                        $$
+                        To second order, the effective Hamiltonian can be shown as,
+                        $$
+                            H_{\text{eff}} = \sin\phi\cos\phi\,PQ\ketbra{g}{g} + \Gamma
+                        $$
+                        The term $\Gamma$ represents the residual local fields left from the perturbation analysis &mdash; these are important for subsequent gadgets.
+                        We mention here that the process shown above is different from that in the article.
+                        This is because here we are attempting a unified framework hence hsowcasing each gadget in a compramble manner.
+                        It takes a small calculation to translate the article's method to the one shown here.
+                        To note, the idea of the gadgets in <a href="references.html#SV09">[SV09]</a> is to create a chain of gadget reduction that approximate a Heisenberg interaction,
+                            i.e. go from 
+                            $$P_i \otimes Q_j \xmapsto{\text{Gadgets}} X_iX_j + Y_iY_j + Z_iZ_j + \text{ext. fields}$$
+                    </div>
                 </div>
             </div>
             <div class="accordion-item">
                 <button class="accordion-button collapsed shadow-none fw-medium" data-bs-toggle="collapse"
-                    data-bs-target="#SVPauli-to-Ising" aria-expanded="false">Pauli-to-Ising</button>
+                    data-bs-target="#SVPauli-to-Ising" aria-expanded="false">Pauli&ndash;to&ndash;Ising</button>
                 <div id="SVPauli-to-Ising" class="accordion-collapse collapse">
-                    <div class="accordion-body pt-0">Text</div>
+                    <div class="accordion-body pt-0">
+                        This gadget aims to take Pauli interactions of the form $P\otimes Q$ where $P$ and $Q$ are necessarily different and 
+                            reduce to Ising type couplings, i.e. some interaction using $P\otimes P + Q\otimes Q$.
+                        We introduce two peices of notation to ease the analysis.
+                        In this gadget, the ground state is chosen to be $\ket{g_{\pi/4}}$, hence, we define,
+                        $$
+                            \langle \sigma^{\mu}\rangle_{g_{\pi/4}} = \eta(\sigma)
+                        $$
+                        and,
+                        $$
+                            \sigma^{\mu}_{-+} = \xi(\sigma)\ketbra{e_{\pi/4}}{g_{\pi/4}} = (\sigma^{\mu}_{+-})^\dagger
+                        $$
+                        Where the former notation signifies the inner product of a given Pauli operator with the defined ground state.
+                        It is simple to verify what these values are. 
+                        Secondly, the latter notation is the projected Pauli operator value.
+                        This calculation is slighlty more involved but nonetheless straightforward.
+                        We note that the only Pauli operator that has no cross projector value is the identity.
+                        We choose,
+                        $$
+                        \begin{align}
+                            \tilde{H} &= H+V \\
+                            H &= \Delta_I\ketbra{e_{\pi/4}}{e_{\pi/4}}_k \\
+                            V &= \sqrt{\frac{\Delta_I}{2}}V_{\text{main}} + \Gamma \ketbra{g_{\pi/4}}{g_{\pi/4}}_k\\
+                            V_{\text{main}} &= \left(P_iP_k - Q_lQ_j\right) 
+                        \end{align}
+                        $$
+                        It can be shown to second order, we retrive the interaction,
+                        $$
+                            H_{\text{eff}} = (\eta(P)\bar{\eta}(Q) PQ + \Gamma)\ketbra{g}{g}
+                        $$
+                    </div>
                 </div>
             </div>
             <div class="accordion-item">
                 <button class="accordion-button collapsed shadow-none fw-medium" data-bs-toggle="collapse"
-                    data-bs-target="#SVIsing-to-XX" aria-expanded="false">Ising-to-$XX$</button>
+                    data-bs-target="#SVIsing-to-XX" aria-expanded="false">Ising&ndash;to&ndash;$XX$</button>
                 <div id="SVIsing-to-XX" class="accordion-collapse collapse">
-                    <div class="accordion-body pt-0">Text</div>
+                    <div class="accordion-body pt-0">
+                        The term $XX$ is a physics term related to labeling Pauli interactions.
+                        Informally, it means two of the terms like $XX$, $YY$ or $ZZ$ conform to the same parameter.
+                        We do not delve into the name here and be faithful to the original work.
+                        We reduce the Ising interactions we saw previously into these $XX$&ndash;type interactions.
+                        The idea behind this gadget is to convert the Ising interactions, interactions like $PP$, into
+                            $XX$&ndash;type interactions.
+                        To motivate and introduce this gadget, we deviate from the general path and consider a specific example.
+                        It should be noted that similar gadgets can be constructed for the all $PP$ Ising terms via appropriate unitary conjugation of the perturation Hamiltonian.
+                        We consider the example of the $XX$ Ising term.
+                        By choosing,
+                        $$
+                        \begin{align}
+                            \tilde{H} &= H+V \\
+                            H &= \Delta_{XX}/2(\mathbb{I} - Y)_k \\
+                            V &= \sqrt{\frac{\Delta_{XX}}{2}}V_{\text{main}} + \Gamma \ketbra{g}{g}_k\\
+                            V_{\text{main}} &= \left((X_iX_k + Y_iY_k)\otimes\mathbb{I}_j - \mathbb{I}_i \otimes(X_kX_j + Y_kY_j)\right) 
+                        \end{align}
+                        $$
+                        To second&ndash;order, it can be shown,
+                        $$
+                            H_{\text{eff}} = (XX + \Gamma)\ketbra{g}{g}
+                        $$
+                    </div>
                 </div>
             </div>
             <div class="accordion-item">
                 <button class="accordion-button collapsed shadow-none fw-medium" data-bs-toggle="collapse"
-                    data-bs-target="#SVXX-to-Heisenberg" aria-expanded="false">$XX$-to-Heisenberg</button>
+                    data-bs-target="#SVXX-to-Heisenberg" aria-expanded="false">$XX$&ndash;to&ndash;Heisenberg</button>
                 <div id="SVXX-to-Heisenberg" class="accordion-collapse collapse">
-                    <div class="accordion-body pt-0">Text</div>
+                    <div class="accordion-body pt-0">
+                        The penultimate gadget in the Schuch and Verstraete line&ndash;up is the $XX$&ndash;to&ndash;Heisenberg gadget.
+                        The idea is that antiferromagnetic Heisenberg interaction with external $Z$ fields can simulate the $XX$&ndash;type interactions above.
+                        The roster of interactions to approximate are: $XX+YY$, $XX+ZZ$ and $YY+ZZ$.
+                        Similar to the previous example, appropriate unitary conjugation of the perturbation Hamiltonian will reveal the specific gadget
+                            for a given $XX$&ndash;type interaction.
+                        We follow the prvious example of $XX+YY$.
+                        Choosing,
+                        $$
+                        \begin{align}
+                            \tilde{H} &= H+V \\
+                            H &= \Delta_{H}/2(\mathbb{I} - Z)_k \\
+                            V &= \sqrt{\frac{\Delta_{H}}{2}}V_{\text{main}} + V_{\text{extra}} + \Gamma \ketbra{g}{g}_k\\
+                            V_{\text{main}} &= \sum_{i\in\{1,2,3\}} \left(\sigma^{i}_i\otimes\sigma^{i}_k\otimes\mathbb{I}_j + \mathbb{I}_i\otimes\sigma^{i}_k\otimes\sigma^{i}_j \right) \\
+                            V_{\text{extra}} &= \left(Z_i\otimes\mathbb{I}_k\otimes\mathbb{I}_j + \mathbb{I}_i\otimes\mathbb{I}_k\otimes Z_j \right)
+                        \end{align}
+                        $$
+                        To second&ndash;order, it can be shown,
+                        $$
+                            H_{\text{eff}} = (XX + YY + \Gamma)\ketbra{g}{g}
+                        $$
+                    </div>
                 </div>
             </div>
             <div class="accordion-item">

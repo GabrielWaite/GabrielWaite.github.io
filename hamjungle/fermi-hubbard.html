@@ -38,9 +38,10 @@
                     <ul class="nav flex-column">
                         <li><a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#models" aria-expanded="true">Models</a></li>
                         <ul class="collapse show p-0" id="models">
-                            <li><a class="nav-link" href="2-local-pauli.html">2-Local Pauli</a></li>
-                            <li><a class="nav-link" href="bose-hubbard.html">Bose-Hubbard</a></li>
-                            <li><a class="nav-link" href="fermi-hubbard.html"aria-current="true">Fermi-Hubbard</a></li>
+                            <li><a class="nav-link" href="2-local-pauli.html">2&ndash;Local Pauli</a></li>
+                            <li><a class="nav-link" href="bose-hubbard.html">Bose&ndash;Hubbard</a></li>
+                            <li><a class="nav-link" href="fermi-hubbard.html"aria-current="true">Fermi&ndash;Hubbard</a></li>
+                            <li><a class="nav-link" href="general.html">General</a></li>
                             <li><a class="nav-link" href="general-local.html">General Local</a></li>
                             <li><a class="nav-link" href="heisenberg.html">Heisenberg</a></li>
                             <li><a class="nav-link" href="ising.html">Ising</a></li>
@@ -79,8 +80,8 @@
 <div class="alert alert-light">
     <small class="badge float-end text-body-secondary fw-normal py-0">Key: FHM01</small>
       <div>
-          <strong>Hamiltonian:</strong> The Fermi-Hubbard Model
-          $$H = \displaystyle\sum_{i,j\in\Lambda}\displaystyle\sum_{\sigma}t_{ij} c_{i\sigma}^\dagger c_{j\sigma} + U\displaystyle\sum_{i\in\Lambda}n_{i\uparrow}n_{i\downarrow}$$
+          <strong>Hamiltonian:</strong> The Fermi&ndash;Hubbard Model
+          $$H = \displaystyle\sum_{i,j\in\Lambda}\displaystyle\sum_{\sigma}t_{ij} c_{i\sigma}^\dagger c_{j\sigma} + U\displaystyle\sum_{i\in\Lambda}n_{i\uparrow}n_{i\downarrow} + \displaystyle\sum_{i\in\Lambda} \boldsymbol{B}_i \cdot \boldsymbol{S}_i $$
       </div>
       <div><strong>Problem:</strong> Ground state energy</div>
       <div><strong>Complexity:</strong><span class="cm-sans-serif"> QMA</span>&ndash;complete</div>
@@ -90,6 +91,7 @@
           <strong>Conditionals:</strong>
           <ul>
           <li>$U\gg t$</li>
+          <li>$U/t$ grows polynomially in system size</li>
           <li>Half filling</li>
           <li>Nearest neighbour interactions</li>
           <li>$\Lambda$ is a 2D square lattice</li>
@@ -100,10 +102,9 @@
       <div>
           <strong>Reductions:</strong>
           <ul>
-          <li>From: HaF&ndash;Heisenberg model on a 2D square lattice</p>
+          <li>From: HaF&ndash;Heisenberg model on a 2D square lattice</li>
           </ul>
       </div>
-      <hr class="border-top bs-border-color opacity-100" />
  </div>
 <!-- Item FHM02 --><!-- Item FHM02 --><!-- Item FHM02 -->
   <div class="alert alert-light">
@@ -128,10 +129,9 @@
       <div>
           <strong>Reductions:</strong>
           <ul>
-          <li>From: HaF&ndash;Heisenberg model on a weighted interaction graph (IaF&ndash;Heisenberg Hamiltonian)</p>
+          <li>From: HaF&ndash;Heisenberg model on a weighted interaction graph (IaF&ndash;Heisenberg Hamiltonian)</li>
           </ul>
       </div>
-      <hr class="border-top bs-border-color opacity-100" />
  </div>
 <!-- Item FHM03 --><!-- Item FHM03 --><!-- Item FHM03 -->
   <div class="alert alert-light">
@@ -142,7 +142,7 @@
       </div>
       <div><strong>Problem:</strong> Ground state energy</div>
       <div><strong>Complexity:</strong><span class="cm-sans-serif"> QMA</span>&ndash;complete</div>
-      <div><strong>Ref:</strong> <a href="references.html#Me:)">[Me:)]</a></div>
+      <div><strong>Ref:</strong> <a href="references.html#W23">[W23]</a></div>
       <hr class="border-top bs-border-color opacity-100" />
       <div>
           <strong>Conditionals:</strong>
@@ -156,10 +156,9 @@
       <div>
           <strong>Reductions:</strong>
           <ul>
-          <li>From: HaF&ndash;Heisenberg model on a weighted 2D triangular lattice (IaF&ndash;Heisenberg Hamiltonian on 2D triangular lattice)</p>
+          <li>From: HaF&ndash;Heisenberg model on a weighted 2D triangular lattice (IaF&ndash;Heisenberg Hamiltonian on 2D triangular lattice)</li>
           </ul>
       </div>
-      <hr class="border-top bs-border-color opacity-100" />
  </div>
     </main>
 </div>
