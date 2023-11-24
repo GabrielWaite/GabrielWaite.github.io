@@ -38,16 +38,16 @@
                     <ul class="nav flex-column">
                         <li><a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#models" aria-expanded="false">Models</a></li>
                         <ul class="collapse p-0" id="models">
-                            <li><a class="nav-link" href="2-local-pauli.html">2-Local Pauli</a></li>
-                            <li><a class="nav-link" href="bose-hubbard.html">Bose-Hubbard</a></li>
-                            <li><a class="nav-link" href="fermi-hubbard.html">Fermi-Hubbard</a></li>
+                            <li><a class="nav-link" href="2-local-pauli.html">2&ndash;Local Pauli</a></li>
+                            <li><a class="nav-link" href="bose-hubbard.html">Bose&ndash;Hubbard</a></li>
+                            <li><a class="nav-link" href="fermi-hubbard.html">Fermi&ndash;Hubbard</a></li>
                             <li><a class="nav-link" href="general.html">General</a></li>
                             <li><a class="nav-link" href="general-local.html">General Local</a></li>
                             <li><a class="nav-link" href="heisenberg.html">Heisenberg</a></li>
                             <li><a class="nav-link" href="ising.html">Ising</a></li>
                             <li><a class="nav-link" href="qudit.html">Qudit</a></li>
                         </ul>
-                        <li><a class="nav-link" href="supplimentary.html">Supplimentary</a></li>
+                        <li><a class="nav-link" href="supplementary.html">Supplementary</a></li>
                         <li><a class="nav-link" href="glossary.html">Glossary</a></li>
                         <li><a class="nav-link" href="references.html">References</a></li>
                         <li><a class="nav-link" href="open-problems.html">Open Problems</a></li>
@@ -112,29 +112,39 @@
         <div class="clearfix"></div>
         <hr class="border-top bs-border-color opacity-100" />
         <h4>Introduction to the Hamiltonian Jungle</h4>
-        The Hamiltonian Jungle was created as a way of unifying known results related to the local Hamiltonian problem in quanutm complexity theory.
-        There is a large class of results, the most notable being that the $2$&ndash;local Hamiltonian problem is <span class="cm-sans-serif"> QMA</span>&ndash;complete <a href="references.html#KKR05">[KKR05]</a>.
-        Many subsequent ideas and proofs blossomed from this one result.
-        Geometrical restrictions <a href="references.html#OT08">[OT08]</a> were considered as well as specfic types of models <a href="references.html#SV09">[SV09]</a>.
-        Those new to the field can see this long array of results as extremely interesting, but also a daunting task to scratch the surface of understanding each and every one.
-        The Hamiltonian Jungle was therefore created in an effort to ease a few issues:
+        <p>
+            The Hamiltonian Jungle was created as a way of unifying known results related to the local Hamiltonian problem in quanutm complexity theory.
+            There is a large class of results, the most notable being the $2$&ndash;local Hamiltonian problem is <span class="cm-sans-serif"> QMA</span>&ndash;complete <a href="references.html#KKR05">[KKR05]</a>.
+            This results has spurred numerous subsequent ideas and proofs.
+            Explorations into geometrical restrictions <a href="references.html#OT08">[OT08]</a> as well as specfic many&ndash;body model types <a href="references.html#SV09">[SV09]</a> have developed the landscape.
+            Those new to the field can see this long array of results as extremely interesting, but also daunting.
+            The effort needed, not only to understand the content but have a grasp on many of the known results, is significant.
+            The Hamiltonian Jungle was therefore created to ease a few issues:
+        </p>
         <ol>
-            <li>Help those new to, and interesed in the field grasp the current situation of local Hamiltonian complexity classifications.</li>
-            <li>Provide a cohesive analysis on the known results to remove any possible ambiguties in the results.</li>
-            <li>Demonstrate reductions between Hamiltonian instances.</li>
-            <li>Provide clarity on where gaps in knowledge lie.</li>
-            <li>Clarify some of the techniques used in the reduction proofs.</li>
+            <li><strong>Entry to the Field:</strong> Assist those new to and interested in the field in gaining a clear understanding of the current landscape of local Hamiltonian complexity classifications.</li>
+            <li><strong>Cohesive Analysis:</strong> Provide a unified and cohesive analysis of known results to hopefully eliminate any potential ambiguities.</li>
+            <li><strong>Reduction Clarity:</strong> Illustrate reductions between Hamiltonian instances, offering valuable insights into the relationships between different problems.</li>
+            <li><strong>Knowlegde Gaps:</strong> Clarify where gaps in knowledge currently exist, highlighting areas that warrant further exploration and research.</li>
+            <li><strong>Technique Analysis:</strong> Shed light on the techniques employed in reduction proofs, making the intricacies of the proofs more accessible to a wider audience.</li>
         </ol>
-        We have taken much inspiration from the likes of: <a href="https://complexityzoo.net/Complexity_Zoo">Complexity Zoo</a>, <a href="https://quantumalgorithmzoo.org">Quantum Algorithm Zoo</a>, <a href="https://errorcorrectionzoo.org">Error Correction Zoo</a> and <a href="https://mathworld.wolfram.com">Wolfram Mathworld</a>.
+        <p>
+            We have taken much inspiration from the likes of: <a href="https://complexityzoo.net/Complexity_Zoo">Complexity Zoo</a>, <a href="https://quantumalgorithmzoo.org">Quantum Algorithm Zoo</a>, <a href="https://errorcorrectionzoo.org">Error Correction Zoo</a> and <a href="https://mathworld.wolfram.com">Wolfram Mathworld</a>.
+            As it currently stands, the Hamiltonian Jungle is far complete and there is much work to be done before we can safley say we have a full library of known results.
+            In its current form we have conveyed some of the more interesting results and open questions.
+            As a final remark, we mention that the Supplementary analysis is also a work in progress.
+            We are attempting to convey difficult concepts to a range of auidences; if some things aren't clear, please contact us to discuss more on how we can improve.
+        </p>
         <hr class="border-top bs-border-color opacity-100" />
         <div class="alert alert-light">
             <strong>Bibtex:</strong>
             <p>
                 <pre class="px-2">
                     <code>@misc{TheHamiltonianJungle,
-                        &nbsp;&nbsp;title={The Hamiltonian Jungle},
-                        &nbsp;&nbsp;author={Waite, Gabriel and Mann, Ryan L},
-                        &nbsp;&nbsp;year={2023}
+                        &nbsp;&nbsp;title = {The Hamiltonian Jungle},
+                        &nbsp;&nbsp;author = {Waite, Gabriel and Mann, Ryan L},
+                        &nbsp;&nbsp;year = {2023},
+                        &nbsp;&nbsp;howpublished = {\url{...}}
                     }</code>
                 </pre>
             </p>
@@ -145,10 +155,16 @@
             <li>Jannis Ruh</li>
         </ul>
         <hr class="border-top bs-border-color opacity-100" />
+        <h4>Sponsorship</h4>
+        <p>
+            We extend our gratidue to the <strong>UTS Centre for Quantum Software and Information</strong> for funding the hosting of this website.
+        </p>
+        <img src="media/graphics/qsi_cropped.png" width="800px" height="250px">
+        <hr class="border-top bs-border-color opacity-100" />
         <h4>Updates</h4>
         <strong>Date Created:</strong> September 2023
         <br>
-        <strong>Last Update:</strong> 15 November 2023
+        <strong>Last Update:</strong> 24 November 2023
     </main>
 </div>
 </body>

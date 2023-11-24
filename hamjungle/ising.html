@@ -47,7 +47,7 @@
                             <li><a class="nav-link" href="ising.html" aria-current="true">Ising</a></li>
                             <li><a class="nav-link" href="qudit.html">Qudit</a></li>
                         </ul>
-                        <li><a class="nav-link" href="supplimentary.html">Supplimentary</a></li>
+                        <li><a class="nav-link" href="supplementary.html">Supplementary</a></li>
                         <li><a class="nav-link" href="glossary.html">Glossary</a></li>
                         <li><a class="nav-link" href="references.html">References</a></li>
                         <li><a class="nav-link" href="open-problems.html">Open Problems</a></li>
@@ -83,13 +83,13 @@
           $$H=\displaystyle\sum_{i,j\in\Lambda}L_{ij}Z_iZ_j + \displaystyle\sum_{i\in\Lambda}f_iX_i$$
       </div>
       <div><strong>Problem:</strong> Ground state energy</div>
-      <div><strong>Complexity:</strong><span class="cm-sans-serif"> StoqMA</span>-complete</div>
+      <div><strong>Complexity:</strong><span class="cm-sans-serif"> StoqMA</span>&ndash;complete</div>
       <div><strong>Ref:</strong> <a href="references.html#BH14">[BH14]</a></div>
       <hr class="border-top bs-border-color opacity-100" />
       <div>
           <strong>Conditionals:</strong>
           <ul>
-          <li>$L_{ij}$, $f_i$ are real</li>
+          <li>$L_{ij}$ and $f_i$ are real</li>
           <li>$f_i \geq 0$</li>
           </ul>
       </div>
@@ -97,28 +97,27 @@
       <div>
           <strong>Reductions:</strong>
           <ul>
-          <li>From: The 2-local Hamiltonian</li>
-          <li>To: The Ising model</li>
+          <li>From the 2&ndash;local Hamiltonian</li>
+          <li>To the Ising model</li>
           </ul>
       </div>
-      <hr class="border-top bs-border-color opacity-100" />
  </div>
 <!-- Item IM17 --><!-- Item IM17 --><!-- Item IM17 -->
   <div class="alert alert-light">
     <small class="badge float-end text-body-secondary fw-normal py-0">Key: IM17</small>
       <div>
           <strong>Hamiltonian:</strong> The Classical Ising model
-          $$H=\displaystyle\sum_{i,j\in\Lambda}L_{ij}Z_iZ_j$$
+          $$H=\displaystyle\sum_{i,j\in\Lambda}L_{ij}S_iS_j$$
       </div>
       <div><strong>Problem:</strong> Ground state energy</div>
-      <div><strong>Complexity:</strong><span class="cm-sans-serif"> NP</span>-complete</div>
-      <div><strong>Ref:</strong> <a href="references.html#Barahona82">[Barahona82]</a></div>
+      <div><strong>Complexity:</strong><span class="cm-sans-serif"> NP</span>&ndash;complete</div>
+      <div><strong>Ref:</strong> <a href="references.html#Bar82">[Bar82]</a></div>
       <hr class="border-top bs-border-color opacity-100" />
       <div>
           <strong>Conditionals:</strong>
           <ul>
           <li>$L_{ij}\in\{-1,0,1\}$</li>
-          <li>$Z_i \in \{-1,1\}$</li>
+          <li>$S_i \in \{-1,1\}$</li>
           <li>$\Lambda$ representing a $2$&ndash;level grid</li>
           </ul>
       </div>
@@ -126,10 +125,36 @@
       <div>
           <strong>Reductions:</strong>
           <ul>
-          <li>From: The TIM</li>
+          <li>From the TIM</li>
+          </ul>
+      </div>
+ </div>
+ <!-- Item IM18 --><!-- Item IM18 --><!-- Item IM18 -->
+ <div class="alert alert-light">
+    <small class="badge float-end text-body-secondary fw-normal py-0">Key: IM18</small>
+      <div>
+          <strong>Hamiltonian:</strong> The Classical Ising model
+          $$H=\displaystyle\sum_{i,j\in\Lambda} S_iS_j + \displaystyle\sum_{i\in\Lambda} S_i$$
+      </div>
+      <div><strong>Problem:</strong> Ground state energy</div>
+      <div><strong>Complexity:</strong><span class="cm-sans-serif"> NP</span>&ndash;hard</div>
+      <div><strong>Ref:</strong> <a href="references.html#Bar82">[Bar82]</a></div>
+      <hr class="border-top bs-border-color opacity-100" />
+      <div>
+          <strong>Conditionals:</strong>
+          <ul>
+          <li>Antiferromagnetic interactions</li>
+          <li>$S_i \in \{-1,1\}$</li>
+          <li>$\Lambda$ representing a planar graph</li>
           </ul>
       </div>
       <hr class="border-top bs-border-color opacity-100" />
+      <div>
+          <strong>Reductions:</strong>
+          <ul>
+          <li>From the TIM</li>
+          </ul>
+      </div>
  </div>
 <!-- Item IM23 --><!-- Item IM23 --><!-- Item IM23 -->
   <div class="alert alert-light">
@@ -139,7 +164,7 @@
           $$H=\displaystyle\sum_{i,j\in\Lambda}L_{ij}^{^{(\geq 0)}}Z_iZ_j + \displaystyle\sum_{i\in\Lambda}f_iX_i$$
       </div>
       <div><strong>Problem:</strong> Ground state energy</div>
-      <div><strong>Complexity:</strong><span class="cm-sans-serif"> StoqMA</span>-complete</div>
+      <div><strong>Complexity:</strong><span class="cm-sans-serif"> StoqMA</span>&ndash;complete</div>
       <div><strong>Ref:</strong> <a href="references.html#PM15">[PM15]</a></div>
       <hr class="border-top bs-border-color opacity-100" />
       <div>
@@ -153,7 +178,7 @@
       <div>
           <strong>Reductions:</strong>
           <ul>
-          <li>From: The general Transverse Ising Model</li>
+          <li>From the general Transverse Ising Model</li>
           </ul>
       </div>
       <div>
@@ -163,7 +188,6 @@
           <li>Basic Gadget</li>
           </ul>
       </div>
-      <hr class="border-top bs-border-color opacity-100" />
  </div>
 <!-- Item IM24 --><!-- Item IM24 --><!-- Item IM24 -->
   <div class="alert alert-light">
@@ -187,10 +211,9 @@
       <div>
           <strong>Reductions:</strong>
           <ul>
-          <li>From: The general Transverse Ising Model</li>
+          <li>From the general Transverse Ising Model</li>
           </ul>
       </div>
-      <hr class="border-top bs-border-color opacity-100" />
  </div>
     </main>
 </div>

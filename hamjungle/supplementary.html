@@ -14,6 +14,8 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>MathJax={tex:{inlineMath:[["$","$"]]}};</script>
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
 <style>
     .column {
 	  float: left;
@@ -54,7 +56,7 @@
                             <li><a class="nav-link" href="ising.html">Ising</a></li>
                             <li><a class="nav-link" href="qudit.html">Qudit</a></li>
                         </ul>
-                        <li><a class="nav-link" href="supplimentary.html" aria-current="true">Supplimentary</a></li>
+                        <li><a class="nav-link" href="supplementary.html" aria-current="true">Supplementary</a></li>
                         <li><a class="nav-link" href="glossary.html">Glossary</a></li>
                         <li><a class="nav-link" href="references.html">References</a></li>
                         <li><a class="nav-link" href="open-problems.html">Open Problems</a></li>
@@ -79,12 +81,18 @@
     </div>
     <main class="flex-grow w-100 px-4 pb-4">
         <div class="d-flex pt-3 pb-2 mb-3 border-bottom">
-            <h2>Supplimentary</h2>
+            <h2>Supplementary</h2>
         </div>
         <h4>Mathematical Preliminaries</h4>
+        <p>
+            A qubit is the quantum analogue of the familiar classical bit. In the computational basis, we commonly represent a single qubit state using $\ket{0}$, $\ket{1}$ 
+            or a superposition of both, $\alpha\ket{0} + \beta\ket{1}$. Another common basis used for single qubits is the superposition basis, $\ket{+} = \frac{1}{\sqrt{2}}(\ket{0} + \ket{1})$,
+            $\ket{-} = \frac{1}{\sqrt{2}}(\ket{0} - \ket{1})$.
+        </p>
+        <p>
+            To evolve qubit states we act unitary operators on them. 
+        </p>
         <hr class="border-top bs-border-color opacity-100" />
-        <p>What is a qubit?</p>
-        
         <h4>Perturbation Gadget Jungle</h4>
             The rationale behind the use of perturbation techniques becomes evident through a straightforward illustration. 
             At the heart of all subsequent gadget constructions lies the concept of a <i>mediator gadget</i>.
@@ -96,10 +104,34 @@
             Moreover, this interaction indirectly connects the two original particles.
             <div>
                 <div class="column">
-                    <img src="media/graphics/ferromagnetic_interaction.jpeg", width="300", height="200">
+                    <div style="display: flex; justify-content: center;">
+                        <script type="text/tikz">
+                            \begin{tikzpicture}[scale=2]
+                                \draw[draw=none] (1,0)circle(1pt);
+                                \draw[thick] (0,-0.866) -- (2,-0.866);
+                                \draw[fill=black,draw,thick] (0,0-0.866)circle(3pt);
+                                \draw[fill=black,draw,thick] (2,0-0.866)circle(3pt);
+                                \draw[very thick, red,-latex] (0,-0.5-0.866)--(0,0.5-0.866);
+                                \draw[very thick, red, -latex] (2,-0.5-0.866)--(2,0.5-0.866);
+                            \end{tikzpicture}
+                        </script>
+                    </div>
                 </div>
                 <div class="column">
-                    <img src="media/graphics/antiferromagnetic_interaction.jpeg", width="300", height="200">
+                    <div style="display: flex; justify-content: center;">
+                        <script type="text/tikz">
+                            \begin{tikzpicture}[scale=2]
+                                \draw[thick] (0,0) -- (60:2) -- (2,0);
+                                \draw[thick, dashed, orange] (0,0) -- (2,0);
+                                \draw[fill=black,draw,thick] (0,0)circle(3pt);
+                                \draw[fill=black,draw,thick] (2,0)circle(3pt);
+                                \draw[fill=white,draw,thick] (60:2)circle(3pt);
+                                \draw[very thick, red,-latex] (0,-0.5)--(0,0.5);
+                                \draw[very thick, blue,latex-] (1,1.732+-0.5)--(1,1.732+0.5);
+                                \draw[very thick, red, -latex] (2,-0.5)--(2,0.5);
+                            \end{tikzpicture}
+                        </script>
+                    </div>
                 </div>
             </div>
         </br>
@@ -166,6 +198,8 @@
         As a final remark, I like to think of perturbation gadget reductions in the following way: "I know how hard it is to find the ground state energy of Hamiltonian $A$. 
             If I can use Hamiltonian $A$ to simulate Hamiltonian $B$ such that their low&ndash;energy sectors are $\epsilon$&ndash;close, then finding the ground state energy of Hamiltonian $B$ is at least as hard as Hamiltonian $A$."
         A good, trivial example using the first example above is to think about the fact that an antiferromagnetic system might be able to simulate the general system and hence the antiferromagnetic system lies in the same complexity class.
+        <!-- For a more comprehensive and detailed guide on the explicit calculations and intricaies of perturbation gadgets, see my review -->
+        <!-- I actually need to make this review. The motivation is similar to the point of this jungle, to provide some clarity to those new to the field what pertutbation gadgets actual are and how they can be used. I think the review should cover a high level introduction and be followed by a more indepth appendix on the matter. something like this would complement a thesis well -->
         </br>
         </br>
         <h5>Oliveira and Terhal Gadgets</h5>
@@ -181,10 +215,28 @@
                         to reduce the degree of locality and approximate the original $k$&ndash;local interaction $A\otimes B$, using $(\lceil k/2 \rceil + 1)$&ndash;local interactions. 
                         <div>
                             <div class="column">
-                                <img src="media/graphics/ot_subdivision_one.PNG", width="300", height="200">
+                                <div style="display: flex; justify-content: center;">
+                                    <script type="text/tikz">
+                                        \begin{tikzpicture}[scale=2]
+                                            \draw[thick] (-1,0)--(-4,0);
+                                            \draw[fill=black] (-1,0)circle(0.1) node[below,yshift=-5pt] {\large $b$} node[above,yshift=5pt] {\large $B$};
+                                            \draw[fill=black] (-4,0)circle(0.1) node[below,yshift=-5pt] {\large $a$} node[above,yshift=5pt] {\large $A$};
+                                        \end{tikzpicture}
+                                    </script>
+                                </div>
                             </div>
                             <div class="column">
-                                <img src="media/graphics/ot_subdivision_two.png", width="300", height="200">
+                                <div style="display: flex; justify-content: center;">
+                                    <script type="text/tikz">
+                                        \begin{tikzpicture}[scale=2]
+                                            \draw[thick] (1,0)--(4,0);
+                                            \draw[fill=black] (1,0)circle(0.1) node[below,yshift=-5pt] {\large $a$} node[above,yshift=5pt] {\large $A$};
+                                            \draw[fill=black] (4,0)circle(0.1) node[below,yshift=-5pt] {\large $b$} node[above,yshift=5pt] {\large $B$};
+                                            \draw[fill=white] (2.5,0)circle(0.1) node[below,yshift=-5pt] {\large $c$} node[above,yshift=5pt,xshift=-7.5pt] {$X$}
+                                            node[above,yshift=5pt,xshift=7.5pt] {$X$};
+                                        \end{tikzpicture}
+                                    </script>
+                                </div>
                             </div>
                         </div>
                     </br>
@@ -220,16 +272,39 @@
                         the local interactions.
                         <div>
                             <div class="column">
-                                <img src="media/graphics/ot_fork_one.PNG", width="300", height="200">
+                                <div style="display: flex; justify-content: center;">
+                                    <script type="text/tikz">
+                                        \begin{tikzpicture}[scale=2]
+                                            \draw[thick] (-1,0)--(-2.5,-2);
+                                            \draw[thick] (-2.5,-2)--(-4,0);
+                                            \draw[fill=black] (-1,0)circle(0.1) node[below,yshift=-5pt] {\large $c$} node[above,yshift=5pt] {\large $C$};
+                                            \draw[fill=black] (-4,0)circle(0.1) node[below,yshift=-5pt] {\large $b$} node[above,yshift=5pt] {\large $B$};
+                                            \draw[fill=black] (-2.5,-2)circle(0.1) node[below,yshift=-5pt] {\large $a$} node[left,xshift=-2.5pt] {\large $A$};
+                                        \end{tikzpicture}
+                                    </script>
+                                </div>
                             </div>
                             <div class="column">
-                                <img src="media/graphics/ot_fork_two.png", width="300", height="200">
+                                <div style="display: flex; justify-content: center;">
+                                    <script type="text/tikz">
+                                        \begin{tikzpicture}[scale=2]
+                                            \draw[thick] (1,0)--(2.5,-1);
+                                            \draw[thick] (2.5,-1)--(4,0);
+                                            \draw[thick] (2.5,-1)--(2.5,-2);
+                                            \draw[fill=black] (1,0)circle(0.1) node[below,yshift=-5pt] {\large $c$} node[above,yshift=5pt] {\large $C$};
+                                            \draw[fill=black] (4,0)circle(0.1) node[below,yshift=-5pt] {\large $b$} node[above,yshift=5pt] {\large $B$};
+                                            \draw[fill=black] (2.5,-2)circle(0.1) node[below,yshift=-5pt] {\large $a$} node[left,xshift=-2.5pt] {\large $A$};
+                                            \draw[fill=white] (2.5,-1)circle(0.1) node[below,yshift=-4pt,xshift=4pt] {\large $d$} node[below,yshift=5pt,xshift=-9pt] {$X$} node[above,yshift=7.5pt,xshift=-7.5pt] {$X$}
+                                            node[above,yshift=7.5pt,xshift=7.5pt] {$X$};
+                                        \end{tikzpicture}
+                                    </script>
+                                </div>
                             </div>
                         </div>
                         For this gadget we choose,
                         $$
                             \begin{align*}
-                                \tilde{H} &= H+V \\
+                                \widetilde{H} &= H+V \\
                                 H &= \Delta\ketbra{1}{1}_d \\
                                 V &= \sqrt{\frac{\Delta}{2}}V_{\text{main}} + V_{\text{extra,1}} + V_{\text{extra,2}}\\
                                 V_{\text{main}} &= \left(A-B-C\right)X_d \\
@@ -258,26 +333,50 @@
                         This construction also suffers from many unwanted extra interaction terms.
                         <div>
                             <div class="column">
-                                <img src="media/graphics/ot_cross_one.PNG", width="300", height="200">
+                                <div style="display: flex; justify-content: center;">
+                                    <script type="text/tikz">
+                                        \begin{tikzpicture}[scale=2]
+                                            \draw[thick] (-1,0)--(-4,-2);
+                                            \draw[fill=white,draw=none] (-2.5,-1)circle(0.1);
+                                            \draw[thick] (-4,0)--(-1,-2);
+                                            \draw[fill=black] (-1,0)circle(0.1) node[below,yshift=-5pt] {\large $b$} node[above,yshift=5pt] {\large $B$};
+                                            \draw[fill=black] (-4,0)circle(0.1) node[below,yshift=-5pt] {\large $a$} node[above,yshift=5pt] {\large $A$};
+                                            \draw[fill=black] (-1,-2)circle(0.1) node[below,yshift=-5pt] {\large $c$} node[above,yshift=5pt] {\large $C$};
+                                            \draw[fill=black] (-4,-2)circle(0.1) node[below,yshift=-5pt] {\large $d$} node[above,yshift=5pt] {\large $D$};
+                                        \end{tikzpicture}
+                                    </script>
+                                </div>
                             </div>
                             <div class="column">
-                                <img src="media/graphics/ot_cross_two.png", width="300", height="200">
+                                <div style="display: flex; justify-content: center;">
+                                    <script type="text/tikz">
+                                        \begin{tikzpicture}[scale=2]
+                                            \draw[thick] (1,0)--(4,-2);
+                                            \draw[thick] (4,0)--(1,-2);
+                                            \draw[fill=white] (2.5,-1)circle(0.1) node[above,yshift=7.5pt] {$X$} node[below,yshift=-7.5pt] {$X$} node[left,xshift=-5pt] {$X$} node[right,xshift=5pt] {$X$};
+                                            \draw[fill=black] (1,0)circle(0.1) node[below,yshift=-5pt] {\large $a$} node[above,yshift=5pt] {\large $A$};
+                                            \draw[fill=black] (4,0)circle(0.1) node[below,yshift=-5pt] {\large $b$} node[above,yshift=5pt] {\large $B$};
+                                            \draw[fill=black] (1,-2)circle(0.1) node[below,yshift=-5pt] {\large $d$} node[above,yshift=5pt] {\large $D$};
+                                            \draw[fill=black] (4,-2)circle(0.1) node[below,yshift=-5pt] {\large $c$} node[above,yshift=5pt] {\large $C$};
+                                        \end{tikzpicture}
+                                    </script>
+                                </div>
                             </div>
                         </div>
                         We therefore choose,
                         $$
                             \begin{align*}
-                                \tilde{H} &= H+V \\
-                                H &= \Delta\ketbra{1}{1}_d \\
+                                \widetilde{H} &= H+V \\
+                                H &= \Delta\ketbra{1}{1}_e \\
                                 V &= \sqrt{\frac{\Delta}{2}}V_{\text{main}} + V_{\text{extra,1}} + V_{\text{extra,2}}\\
-                                V_{\text{main}} &= \left(A-C+B-D\right)X_d \\
+                                V_{\text{main}} &= \left(A-C+B-D\right)X_e \\
                                 V_{\text{extra,1}} &= \frac{1}{2}\left(A^2+B^2+C^2+D^2\right) \\
                                 V_{\text{extra,2}} &= - (AB+BC+CD+DA)
                             \end{align*}
                         $$
                         Taking the series expansion, we have,
                         $$
-                            H_{\text{eff}} = (AC + BD)\ketbra{0}{0}
+                            H_{\text{eff}} = (AC + BD)\ketbra{0}{0}_e
                         $$
                     </div>
                 </div>
@@ -286,7 +385,40 @@
                 <button class="accordion-button collapsed shadow-none fw-medium" data-bs-toggle="collapse"
                     data-bs-target="#OTFork" aria-expanded="false">Triangle</button>
                 <div id="OTFork" class="accordion-collapse collapse">
-                    <div class="accordion-body pt-0">Text</div>
+                    <div class="accordion-body pt-0">
+                        
+                        <div>
+                            <div class="column">
+                                <div style="display: flex; justify-content: center;">
+                                    <script type="text/tikz">
+                                        \begin{tikzpicture}[scale=2]
+                                            \draw[thick] (-1,0)--(-2.5,-2);
+                                            \draw[thick] (-2.5,-2)--(-4,0);
+                                            \draw[fill=black] (-1,0)circle(0.1) node[below,yshift=-5pt] {\large $c$} node[above,yshift=5pt] {\large $C$};
+                                            \draw[fill=black] (-4,0)circle(0.1) node[below,yshift=-5pt] {\large $b$} node[above,yshift=5pt] {\large $B$};
+                                            \draw[fill=black] (-2.5,-2)circle(0.1) node[below,yshift=-5pt] {\large $a$} node[left,xshift=-2.5pt] {\large $A$};
+                                        \end{tikzpicture}
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="display: flex; justify-content: center;">
+                                    <script type="text/tikz">
+                                        \begin{tikzpicture}[scale=2]
+                                            \draw[thick] (1,0)--(2.5,-1);
+                                            \draw[thick] (2.5,-1)--(4,0);
+                                            \draw[thick] (2.5,-1)--(2.5,-2);
+                                            \draw[fill=black] (1,0)circle(0.1) node[below,yshift=-5pt] {\large $c$} node[above,yshift=5pt] {\large $C$};
+                                            \draw[fill=black] (4,0)circle(0.1) node[below,yshift=-5pt] {\large $b$} node[above,yshift=5pt] {\large $B$};
+                                            \draw[fill=black] (2.5,-2)circle(0.1) node[below,yshift=-5pt] {\large $a$} node[left,xshift=-2.5pt] {\large $A$};
+                                            \draw[fill=white] (2.5,-1)circle(0.1) node[below,yshift=-4pt,xshift=4pt] {\large $d$} node[below,yshift=5pt,xshift=-9pt] {$X$} node[above,yshift=7.5pt,xshift=-7.5pt] {$X$}
+                                            node[above,yshift=7.5pt,xshift=7.5pt] {$X$};
+                                        \end{tikzpicture}
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="accordion-item">
@@ -305,7 +437,7 @@
                         We choose,
                         $$
                             \begin{align*}
-                                \tilde{H} &= H+V \\
+                                \widetilde{H} &= H+V \\
                                 H &= \Delta\ketbra{1}{1}_d \\
                                 V &= \Delta^{2/3}V_{\text{main}} + \Delta^{1/3}V_{\text{extra}}' + V_{\text{extra}}\\
                                 V_{\text{main}} &= \frac{1}{\sqrt{2}}\left(A-B\right)X_d + C\otimes\ketbra{1}{1}_d \\
@@ -327,8 +459,8 @@
         <div class="accordion accordion-flush">
             <div class="accordion-item">
                 <button class="accordion-button collapsed shadow-none fw-medium" data-bs-toggle="collapse"
-                    data-bs-target="#BLZX" aria-expanded="false">$ZZXX$</button>
-                <div id="BLZX" class="accordion-collapse collapse">
+                    data-bs-target="#BLZZXX" aria-expanded="false">$ZZXX$</button>
+                <div id="BLZZXX" class="accordion-collapse collapse">
                     <div class="accordion-body pt-0">
                         This gadget and the one below take a slightly different approach that those above. 
                         Instead of approximating a completely new Hamiltonian using a gadgets, <a href="references.html#OT08">[OT08]</a>
@@ -342,7 +474,7 @@
                         Framing the problem this way allows for the use of the 3&ndash;to&ndash;2 local gadget from <a href="references.html#OT08">[OT08]</a>.
                         $$
                             \begin{align*}
-                                \tilde{H} &= H+V \\
+                                \widetilde{H} &= H+V \\
                                 H &= \Delta\ketbra{1}{1}_d \\
                                 V &= \Delta^{2/3}V_{\text{main}} + \Delta^{1/3}V_{\text{extra}}' + V_{\text{extra}} + \Gamma \\
                                 V_{\text{main}} &= \frac{1}{\sqrt{2}}\left(X_i-\mathbb{I}\right)X_k + Z_j\otimes\ketbra{1}{1}_k \\
@@ -361,8 +493,8 @@
             </div>
             <div class="accordion-item">
                 <button class="accordion-button collapsed shadow-none fw-medium" data-bs-toggle="collapse"
-                    data-bs-target="#BLZZXX" aria-expanded="false">$ZX$</button>
-                <div id="BLZZXX" class="accordion-collapse collapse">
+                    data-bs-target="#BLZX" aria-expanded="false">$ZX$</button>
+                <div id="BLZX" class="accordion-collapse collapse">
                     <div class="accordion-body pt-0">
                         The process for creating the additional $XX$ and $ZZ$ terms, absent in the (<span class="cm-serif-roman-small">$[\![$xz$]\!]$<sup>*</sup>/x&ndash;z</span>) Hamiltonian,
                         is a simple application of the subdivision gadget seen in <a href="references.html#OT08">[OT08]</a>.
@@ -371,7 +503,7 @@
                         We define,
                         $$
                             \begin{align*}
-                                \tilde{H} &= H+V \\
+                                \widetilde{H} &= H+V \\
                                 H &= \Delta\ketbra{1}{1}_c \\
                                 V &= \Delta^{1/2}V_{\text{main}} + \Gamma \\
                                 V_{\text{main}} &= \frac{1}{\sqrt{2}}\left(Z_a-Z_b\right)X_c
@@ -406,7 +538,7 @@
                         We choose,
                         $$
                         \begin{align}
-                            \tilde{H} &= H+V \\
+                            \widetilde{H} &= H+V \\
                             H &= \Delta_P\ketbra{e_\phi}{e_\phi}_k \\
                             V &= \sqrt{\frac{\Delta_P}{2}}V_{\text{main}}\\
                             V_{\text{main}} &= \left(PX_k - QY_k\right) 
@@ -424,6 +556,32 @@
                             Y_{-+} &= \frac{i}{2}\sin\phi\ketbra{g}{e} 
                         \end{align}
                         $$
+                        <div>
+                            <div class="column">
+                                <div style="display: flex; justify-content: center;">
+                                    <script type="text/tikz">
+                                        \begin{tikzpicture}[scale=2]
+                                            \draw[thick] (0,0)--(3,0);
+                                            \draw[fill=black] (3,0)circle(0.1) node[below,yshift=-5pt] {\large $i$} node[above,yshift=5pt] {\large $Q$};
+                                            \draw[fill=black] (0,0)circle(0.1) node[below,yshift=-5pt] {\large $j$} node[above,yshift=5pt] {\large $P$};
+                                        \end{tikzpicture}
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="display: flex; justify-content: center;">
+                                    <script type="text/tikz">
+                                        \begin{tikzpicture}[scale=2]
+                                            \draw[thick] (1,0)--(4,0);
+                                            \draw[fill=black] (1,0)circle(0.1) node[below,yshift=-5pt] {\large $i$} node[above,yshift=5pt] {\large $P$};
+                                            \draw[fill=black] (4,0)circle(0.1) node[below,yshift=-5pt] {\large $j$} node[above,yshift=5pt] {\large $Q$};
+                                            \draw[fill=white] (2.5,0)circle(0.1) node[below,yshift=-5pt] {\large $k$} node[above,yshift=5pt,xshift=-7.5pt] {$X$}
+                                            node[above,yshift=5pt,xshift=7.5pt] {$X$};
+                                        \end{tikzpicture}
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
                         To second order, the effective Hamiltonian can be shown as,
                         $$
                             H_{\text{eff}} = \sin\phi\cos\phi\,PQ\ketbra{g}{g} + \Gamma
@@ -462,12 +620,38 @@
                         We choose,
                         $$
                         \begin{align}
-                            \tilde{H} &= H+V \\
+                            \widetilde{H} &= H+V \\
                             H &= \Delta_I\ketbra{e_{\pi/4}}{e_{\pi/4}}_k \\
                             V &= \sqrt{\frac{\Delta_I}{2}}V_{\text{main}} + \Gamma \ketbra{g_{\pi/4}}{g_{\pi/4}}_k\\
-                            V_{\text{main}} &= \left(P_iP_k - Q_lQ_j\right) 
+                            V_{\text{main}} &= \left(P_iP_k - Q_kQ_j\right) 
                         \end{align}
                         $$
+                        <div>
+                            <div class="column">
+                                <div style="display: flex; justify-content: center;">
+                                    <script type="text/tikz">
+                                        \begin{tikzpicture}[scale=2]
+                                            \draw[thick] (0,0)--(3,0);
+                                            \draw[fill=black] (3,0)circle(0.1) node[below,yshift=-5pt] {\large $i$} node[above,yshift=5pt] {\large $Q$};
+                                            \draw[fill=black] (0,0)circle(0.1) node[below,yshift=-5pt] {\large $j$} node[above,yshift=5pt] {\large $P$};
+                                        \end{tikzpicture}
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="display: flex; justify-content: center;">
+                                    <script type="text/tikz">
+                                        \begin{tikzpicture}[scale=2]
+                                            \draw[thick] (1,0)--(4,0);
+                                            \draw[fill=black] (1,0)circle(0.1) node[below,yshift=-5pt] {\large $i$} node[above,yshift=5pt] {\large $P$};
+                                            \draw[fill=black] (4,0)circle(0.1) node[below,yshift=-5pt] {\large $j$} node[above,yshift=5pt] {\large $Q$};
+                                            \draw[fill=red!25] (2.5,0)circle(0.1) node[below,yshift=-5pt] {\large $k$} node[above,yshift=5pt,xshift=-7.5pt] {$P$}
+                                            node[above,yshift=5pt,xshift=7.5pt] {$Q$};
+                                        \end{tikzpicture}
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
                         It can be shown to second order, we retrive the interaction,
                         $$
                             H_{\text{eff}} = (\eta(P)\bar{\eta}(Q) PQ + \Gamma)\ketbra{g}{g}
@@ -492,12 +676,38 @@
                         By choosing,
                         $$
                         \begin{align}
-                            \tilde{H} &= H+V \\
+                            \widetilde{H} &= H+V \\
                             H &= \Delta_{XX}/2(\mathbb{I} - Y)_k \\
                             V &= \sqrt{\frac{\Delta_{XX}}{2}}V_{\text{main}} + \Gamma \ketbra{g}{g}_k\\
                             V_{\text{main}} &= \left((X_iX_k + Y_iY_k)\otimes\mathbb{I}_j - \mathbb{I}_i \otimes(X_kX_j + Y_kY_j)\right) 
                         \end{align}
                         $$
+                        <div>
+                            <div class="column">
+                                <div style="display: flex; justify-content: center;">
+                                    <script type="text/tikz">
+                                        \begin{tikzpicture}[scale=2]
+                                            \draw[thick] (0,0)--(3,0);
+                                            \draw[fill=black] (3,0)circle(0.1) node[below,yshift=-5pt,color=red] {\large $Y$} node[above,yshift=5pt] {\large $X$};
+                                            \draw[fill=black] (0,0)circle(0.1) node[below,yshift=-5pt,color=red] {\large $Y$} node[above,yshift=5pt] {\large $X$};
+                                        \end{tikzpicture}
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="display: flex; justify-content: center;">
+                                    <script type="text/tikz">
+                                        \begin{tikzpicture}[scale=2]
+                                            \draw[thick] (1,0)--(2.5,0) node[below, midway,yshift=-5pt,color=red] {\large $YY+ZZ$} node[above, midway,yshift=5pt] {\large $XX+YY$};
+                                            \draw[thick] (2.5,0)--(4,0) node[below, midway,yshift=-5pt,color=red] {\large $YY+ZZ$} node[above, midway,yshift=5pt] {\large $XX+YY$};
+                                            \draw[fill=black] (1,0)circle(0.1);
+                                            \draw[fill=black] (4,0)circle(0.1);
+                                            \draw[fill=green!25] (2.5,0)circle(0.1);
+                                        \end{tikzpicture}
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
                         To second&ndash;order, it can be shown,
                         $$
                             H_{\text{eff}} = (XX + \Gamma)\ketbra{g}{g}
@@ -519,17 +729,72 @@
                         Choosing,
                         $$
                         \begin{align}
-                            \tilde{H} &= H+V \\
+                            \widetilde{H} &= H+V \\
                             H &= \Delta_{H}/2(\mathbb{I} - Z)_k \\
                             V &= \sqrt{\frac{\Delta_{H}}{2}}V_{\text{main}} + V_{\text{extra}} + \Gamma \ketbra{g}{g}_k\\
-                            V_{\text{main}} &= \sum_{i\in\{1,2,3\}} \left(\sigma^{i}_i\otimes\sigma^{i}_k\otimes\mathbb{I}_j + \mathbb{I}_i\otimes\sigma^{i}_k\otimes\sigma^{i}_j \right) \\
+                            V_{\text{main}} &= \sum_{l\in\{1,2,3\}} \left(\sigma^{l}_i\otimes\sigma^{l}_k\otimes\mathbb{I}_j + \mathbb{I}_i\otimes\sigma^{l}_k\otimes\sigma^{l}_j \right) \\
                             V_{\text{extra}} &= \left(Z_i\otimes\mathbb{I}_k\otimes\mathbb{I}_j + \mathbb{I}_i\otimes\mathbb{I}_k\otimes Z_j \right)
                         \end{align}
                         $$
+                        <div>
+                            <div class="column">
+                                <div style="display: flex; justify-content: center;">
+                                    <script type="text/tikz">
+                                        \begin{tikzpicture}[scale=2]
+                                            \draw[thick] (0,0)--(3,0) node[above, midway,yshift=5pt] {\large $XX+YY$};
+                                            \draw[fill=black] (3,0)circle(0.1);
+                                            \draw[fill=black] (0,0)circle(0.1);
+                                        \end{tikzpicture}
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="display: flex; justify-content: center;">
+                                    <script type="text/tikz">
+                                        \begin{tikzpicture}[scale=2]
+                                            \draw[thick] (0,0)--(2,0) node[above, midway, yshift=5pt] {\large $XX+YY+ZZ$};
+                                            \draw[thick] (2,0)--(4,0) node[above, midway, yshift=5pt] {\large $XX+YY+ZZ$};
+                                            \draw[thick] (-0.35,0)circle(0.35) node[below] {\large $Z$};
+                                            \draw[thick] (4+0.35,0)circle(0.35) node[below] {\large $Z$};
+                                            \draw[fill=black] (0,0)circle(0.1);
+                                            \draw[fill=black] (4,0)circle(0.1);
+                                            \draw[fill=blue!25] (2,0)circle(0.1);
+                                        \end{tikzpicture}
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
                         To second&ndash;order, it can be shown,
                         $$
                             H_{\text{eff}} = (XX + YY + \Gamma)\ketbra{g}{g}
                         $$
+                        In a complete setting, the gadget outlined in this article create a chain of gadgets that approximate a Heisenberg interaction using
+                            a system of different Pauli interactions, vice versa.
+                        This is captured in the diagram below:
+                        <div style="display: flex; justify-content: center;">
+                            <script type="text/tikz">
+                                \begin{tikzpicture}[scale=1.5]
+                                    \draw[thick] (0,1.5)--(18,1.5);
+                                    \draw[fill=black] (0,1.5)circle(0.1);
+                                    \draw[fill=black] (18,1.5)circle(0.1);
+                                    \draw[fill=white] (9,1.5)circle(0.1);
+                                    \foreach \i in {2,4,...,16}{\draw[fill=blue!25] (\i,1.5)circle(0.1);}
+                                    \foreach \i in {3,7,11,15}{\draw[fill=green!25] (\i,1.5)circle(0.1);}
+                                    \foreach \i in {5,13}{\draw[fill=red!25] (\i,1.5)circle(0.1);}
+                                    
+                                    \foreach \i [count=\xi] in {0,-1,-2,-3}{\draw[dashed] (0,\i)--(18,\i) node[right] {$O(\xi)$};}
+                                    \draw[thick] (0,0)--(2,-3)--(3,-2)--(4,-3)--(5,-1)--(6,-3)--(7,-2)--(8,-3)--(9,0)--(10,-3)--(11,-2)--(12,-3)--(13,-1)--(14,-3)--(15,-2)--(16,-3)--(18,0);
+                                    \draw[fill=black] (0,0)circle(0.1);
+                                    \draw[fill=black] (18,0)circle(0.1);
+                            
+                                    \foreach \i in {2,4,...,16}{\draw[fill=blue!25] (\i,-3)circle(0.1);}
+                                    \foreach \i in {3,7,11,15}{\draw[fill=green!25] (\i,-2)circle(0.1);}
+                                    \foreach \i in {5,13}{\draw[fill=red!25] (\i,-1)circle(0.1);}
+                                    \draw[fill=white] (9,0)circle(0.1);        
+                                \end{tikzpicture}
+                            </script>
+                        </div>
+                        A pleasant way to think about this diagram is to think that a chain of specific Heisenberg interactions are sufficient to approximate a particular Pauli interaction.
                     </div>
                 </div>
             </div>
@@ -537,7 +802,21 @@
                 <button class="accordion-button collapsed shadow-none fw-medium" data-bs-toggle="collapse"
                     data-bs-target="#SVErasure" aria-expanded="false">Erasure</button>
                 <div id="SVErasure" class="accordion-collapse collapse">
-                    <div class="accordion-body pt-0">Text</div>
+                    <div class="accordion-body pt-0">
+                        This final gadget is used in the reduction from a sparse lattice to a full 2D lattice.
+                        Adding external fields to certain qubits creates a full lattice of Heisenberg interactions with local fields.
+                        We choose,
+                        $$
+                        \begin{align}
+                            \widetilde{H} &= H+V \\
+                            H &= \Delta_{B}/2(\mathbb{I} - Z)_k \\
+                            V &= \sqrt{\frac{\Delta_{H}}{2}}V_{\text{main}} + \sum_{i \atop l\in\{1,2,3\}} B^{l}_i\;\sigma^{l}_i\\
+                            V_{\text{main}} &= \sum_{\langle i,j \rangle \atop l\in\{1,2,3\}} \sigma^{l}_i \otimes \sigma^{l}_j
+                        \end{align}
+                        $$
+                        The effective Hamiltonian here reproduces an approximation to the Heisenberg interaction on a sparse lattice. 
+                        Since it is not trivial to see the resulting interaction is a sparse one we omit this analysis.
+                    </div>
                 </div>
             </div>
         </div>
@@ -548,24 +827,141 @@
                 <button class="accordion-button collapsed shadow-none fw-medium" data-bs-toggle="collapse"
                     data-bs-target="#PMBasic" aria-expanded="false">Basic</button>
                 <div id="PMBasic" class="accordion-collapse collapse">
-                    <div class="accordion-body pt-0">Text</div>
+                    <div class="accordion-body pt-0">
+                        <p>
+                            The gadgets proposed by Piddock and Montonaro are a generalisation of the gadgets shown above.
+                            For the context of their work, the gadgets of previous literature are not appropriate in the same manner.
+                            This links to the gadgets of Biamonte and Love where the interaction set of a given Hamiltonian restricted us from creating any old gadget.
+                            A similar principle applies here.
+                            The work <a href="references.html#PM15">[PM15]</a> is heavily concerned with interactions of the form: $\alpha XX + \beta YY + \gamma ZZ$ without   
+                                the addition of external fields.
+                            This clearly means the set of interactions present differs greatly from what we allowed previously.
+                            The role of the basic gadget is to identity to further subdivision gadgets, namely the positive and negative subdivision gadgets.
+                            The basic gadget lays the theoretical foundations.
+                            We do not cover an in&ndash;depth analysis here, just the important points.
+                        </p>
+                        <p>
+                            Consider the interaction $\alpha XX + \beta YY + \gamma ZZ$ subject to the condition $(\alpha+\beta, \alpha+\gamma, \beta+\gamma)>0$.
+                            The matrix for this is trivially defined as,
+                            $$
+                            \begin{bmatrix}
+                                \gamma&0&0&\alpha-\beta\\0&-\gamma&\alpha+\beta&0\\0&\alpha+\beta&-\gamma&0\\\alpha-\beta&0&0&\gamma
+                            \end{bmatrix}
+                            $$
+                            Since the above condition is required, we find the unique "low&ndash;energy" state to be given by $\ket{\Psi^-}$. 
+                            If the condition $(\alpha+\beta, \alpha+\gamma, \beta+\gamma)>0$ is not met we run into a degenerate ground space.
+                            As per the general idea, we want a block diagonal unperturbed Hamiltonian term $H$ such that the low&ndash;energy eigenvalue is $0$ and all other 
+                                eigenvalues are greater than $1$.
+                            This gives a split Hilbert space.
+                            To this end, we deinfe the unpertutbed Hamiltonian as,
+                            $$
+                                H = \Delta \big((\alpha+\beta)\ketbra{\Psi^+}{\Psi^+} +(\alpha+\gamma)\ketbra{\Phi^+}{\Phi^+} +(\beta+\gamma)\ketbra{\Phi^-}{\Phi^-} \big)
+                            $$
+                        </p>
+                        <p>
+                            From the above ideas, the form of the perturbation term $V$ heavily influences the effective interaction produced.
+                            For the case here, there is a specific way of connecting the mediator qubits to the original system qubits such that    
+                                positive and negative interactions can be simulated.
+                            This is why we have the two generalised gadgets below.
+                            The important thing to notice is that instead of a single mediator qubit, we now have two!
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="accordion-item">
                 <button class="accordion-button collapsed shadow-none fw-medium" data-bs-toggle="collapse"
                     data-bs-target="#PMPositiveSubdivision" aria-expanded="false">Positive Subdivision</button>
                 <div id="PMPositiveSubdivision" class="accordion-collapse collapse">
-                    <div class="accordion-body pt-0">Text</div>
+                    <div class="accordion-body pt-0">
+                        <p>
+                            Let us denote the interaction between two qubits, $i$ and $j$ or the form $\alpha X_iX_j + \beta Y_iY_j + \gamma Z_iZ_j$ as $H_{ij}$.
+                        We also have the added condition that $(\alpha+\beta, \alpha+\gamma, \beta+\gamma)>0$.
+                        Consider choosing the following terms,
+                        $$
+                        \begin{align}
+                            \widetilde{H} &= H+V \\
+                            H &= \Delta\big((\alpha+\beta)\ketbra{\Psi^+}{\Psi^+}_{ab} +(\alpha+\gamma)\ketbra{\Phi^+}{\Phi^+}_{ab} +(\beta+\gamma)\ketbra{\Phi^-}{\Phi^-}_{ab} \big)\\
+                            V &= \sqrt{\frac{\Delta}{2}}V_{\text{main}} \\
+                            V_{\text{main}} &= H_{ia} + H_{jb} \\
+                                            &= \big(\alpha X_iX_a + \beta Y_iY_a + \gamma Z_iZ_a \big) + \big(\alpha X_jX_b + \beta Y_jY_b + \gamma Z_jZ_b \big)
+                        \end{align}
+                        $$
+                        In this form, the mediator qubits are attached in the following way,
+                        </p>
+                        <div style="display: flex; justify-content: center;">
+                        <script type="text/tikz">
+                            \begin{tikzpicture}[scale=2]
+                                \draw[thick] (-1,0)--(-4,0);
+                                \draw[fill=black] (-1,0)circle(0.1) node[below,yshift=-5pt] {\large $j$};
+                                \draw[fill=black] (-4,0)circle(0.1) node[below,yshift=-5pt] {\large $i$};
+                        
+                        
+                                \draw[thick] (1,0)--(2,0);\draw[thick] (3,0)--(4,0);\draw[thick,dashed] (2,0)--(3,0);
+                                \draw[fill=black] (1,0)circle(0.1) node[below,yshift=-5pt] {\large $i$};
+                                \draw[fill=black] (4,0)circle(0.1) node[below,yshift=-5pt] {\large $j$};
+                                \draw[fill=white] (2,0)circle(0.1) node[below,yshift=-5pt] {\large $a$};
+                                \draw[fill=white] (3,0)circle(0.1) node[below,yshift=-5pt] {\large $b$};
+                            \end{tikzpicture}
+                          </script>
+                        </div>
+                        <p>
+                        To second&ndash;order perturation theory, it can be shown,
+                        $$
+                            H_{\text{eff}} = \left(\frac{\alpha^2}{\beta+\gamma} X_iX_j + \frac{\beta^2}{\alpha+\gamma} Y_iY_j + \frac{\gamma^2}{\alpha+\beta} Z_iZ_j \right)\ketbra{\Psi^-}{\Psi^-}_{ab}
+                        $$
+                    </p>
+                    </div>
                 </div>
             </div>
             <div class="accordion-item">
                 <button class="accordion-button collapsed shadow-none fw-medium" data-bs-toggle="collapse"
                     data-bs-target="#PMNegativeSubdivision" aria-expanded="false">Negative Subdivision</button>
                 <div id="PMNegativeSubdivision" class="accordion-collapse collapse">
-                    <div class="accordion-body pt-0">Text</div>
+                    <div class="accordion-body pt-0">
+                        <p>
+                        The negative subdivision gadget uses the same basic framework as the positive subdivision gadget however we now attach the mediator 
+                            qubits in a different fashion.
+                        Consider,
+                        $$
+                        \begin{align}
+                            \widetilde{H} &= H+V \\
+                            H &= \Delta\big((\alpha+\beta)\ketbra{\Psi^+}{\Psi^+}_{ab} +(\alpha+\gamma)\ketbra{\Phi^+}{\Phi^+}_{ab} +(\beta+\gamma)\ketbra{\Phi^-}{\Phi^-}_{ab} \big)\\
+                            V &= \sqrt{\frac{\Delta}{2}}V_{\text{main}} \\
+                            V_{\text{main}} &= H_{ia} + H_{ja} \\
+                                            &= \big(\alpha X_iX_a + \beta Y_iY_a + \gamma Z_iZ_a \big) + \big(\alpha X_jX_a + \beta Y_jY_a + \gamma Z_jZ_a \big)
+                        \end{align}
+                        $$
+                        We show this example visually as,
+                    </p>
+                    <div style="display: flex; justify-content: center;">
+                        <script type="text/tikz">
+                            \begin{tikzpicture}[scale=2]
+                                \draw[thick] (-1,0)--(-4,0);
+                                \draw[fill=black] (-1,0)circle(0.1) node[below,yshift=-5pt] {\large $j$};
+                                \draw[fill=black] (-4,0)circle(0.1) node[below,yshift=-5pt] {\large $i$};
+                        
+                        
+                                \draw[thick] (1,0)--(4,0);\draw[thick,dashed] (2.5,0)--(2.5,1);
+                                \draw[fill=black] (1,0)circle(0.1) node[below,yshift=-5pt] {\large $i$};
+                                \draw[fill=black] (4,0)circle(0.1) node[below,yshift=-5pt] {\large $j$};
+                                \draw[fill=white] (2.5,0)circle(0.1) node[below,yshift=-5pt] {\large $a$};
+                                \draw[fill=white] (2.5,1)circle(0.1) node[above,yshift=5pt] {\large $b$};
+                            \end{tikzpicture}
+                          </script>
+                        </div>
+                        <p>
+                            A similar second&ndash;order analysis reveals,
+                            $$
+                                H_{\text{eff}} = -\left(\frac{\alpha^2}{\beta+\gamma} X_iX_j + \frac{\beta^2}{\alpha+\gamma} Y_iY_j + \frac{\gamma^2}{\alpha+\beta} Z_iZ_j \right)\ketbra{\Psi^-}{\Psi^-}_{ab}
+                            $$
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
+    <hr class="border-top bs-border-color opacity-100" />
+    <h4>Related Problems</h4>
+    $N$&ndash;Representibilty. General Local Fermionic Problems. Hartree&ndash;Fock Problem. Universal Functional Problem.
     </main>
 </div>
 </body>
