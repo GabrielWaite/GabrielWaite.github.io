@@ -128,11 +128,15 @@ pre {
   white-space: pre-line;
 }
 
-/* Complexity Classifications Font */
+[data-bs-theme="dark"] .gadget svg {
+  filter: invert(100%);
+}
+
+/* Complexity Classifications Fonts */
 
 @font-face {
   font-family: 'ComputerModernSans';
-  src: url('/Users/gabewaite/Downloads/HamJungle/media/fonts/cmu.sans-serif-medium.ttf') format('truetype');
+  src: url('media/fonts/cmu.sans-serif-medium.ttf') format('truetype');
 }
 
 .cm-sans-serif {
@@ -141,7 +145,7 @@ pre {
 
 @font-face {
   font-family: 'ComputerModernRoman';
-  src: url('/Users/gabewaite/Downloads/HamJungle/media/fonts/cmu.serif-roman.ttf') format('truetype');
+  src: url('media/fonts/cmu.serif-roman.ttf') format('truetype');
 }
 
 .cm-serif-roman {
