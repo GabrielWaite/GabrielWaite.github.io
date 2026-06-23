@@ -1,351 +1,250 @@
-<!-- https://stackoverflow.com/questions/13526712/make-div-draggable-using-css -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gabriel Waite's Personal Website</title>
-    <link rel="icon" type="image/x-icon" href="media/favicon.ico">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
 </head>
 <body>
-    <div id="floatright">
-        <p>Gabriel Waite</p>
+    <div class="image-box">
+        <img src="me.jpeg" alt="Profile Picture" style="width: 100%; height: 100%; display: block; object-fit: cover;">
     </div>
-    
-    <div class="outer">
-        <div class="middle">
-            <div class="content-box">
-                <h2 style="color: #342200; text-align: right; margin-top: -3px; margin-bottom: -0.5px;">Contact & Profiles</h2>
-                <div class="image-box" style="width: 98%; padding: 0; overflow: hidden;">
-                    <img src="media/me.jpeg" alt="Profile Picture" style="width: 100%; height: 100%; display: block; object-fit: cover;">
-                </div>
-                <div class="text-box" style="margin-top: 5px; width: 98%; text-align: center;">
-                    <p>
-                        <a href="https://github.com/GabrielWaite" target="_blank" style="color: #9d59b8;">GitHub</a>
-                        &emsp;&#183;&emsp;
-                        <a href="https://scholar.google.com/citations?user=YfeohBkAAAAJ&hl=en" target="_blank" style="color: #9d59b8;">Google Scholar</a>
-                        &emsp;&#183;&emsp;
-                        <a href="https://www.linkedin.com/in/gabe-waite-666-l" target="_blank" style="color: #9d59b8;">LinkedIn</a>
-                    </p>
-                    <p>
-                        Personal e&ndash;mail: 
-                        <a href = "mailto: gabrielwaite1999@outlook.com" style="color: #9d59b8;">gabrielwaite1999@outlook.com</a>
-                    </p>
-                    <p>
-                        Student e&ndash;mail: 
-                        <a href = "mailto: gabriel.waite@student.uts.edu.au" style="color: #9d59b8;">gabriel.waite@student.uts.edu.au</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-<!-- News Popup -->
-    <div id="news-popup" class="news-overlay">
-        <div class="news-popup">
-            <h2 style="color: #342200; text-align: right; margin-top: -3px; margin-bottom: -0.5px;">News</h2>
-            <!-- <a class="close" href="#">x</a> -->
-            <span class="close-btn">x</span>
-            <div class="news-text-box">
+    <p>
+        <a href="https://github.com/GabrielWaite" target="_blank" style="color: #ff5c00;">GitHub</a>
+        &emsp;&#183;&emsp;
+        <a href="https://scholar.google.com/citations?user=YfeohBkAAAAJ&hl=en" target="_blank" style="color: #ff5c00;">Google Scholar</a>
+        &emsp;&#183;&emsp;
+        <a href="https://www.linkedin.com/in/gabe-waite-666-l" target="_blank" style="color: #ff5c00;">LinkedIn</a>
+    </p>
+    <hr style="border: 1px solid #333;">
+    <h2>About Me</h2>
+
+    <p>
+        I am a PhD candidate at the University of Technology Sydney, working in quantum complexity and algorithms under the supervision of <i>Mick Bremner</i>, <i>Ryan Mann</i>, and <i>Sam Elman</i>.
+        <br><br>
+        My research explores how the physical structure of quantum systems influences their computational complexity. In particular, I study which features of a Hamiltonian &mdash; such as locality, geometry, stoquasticity, and the structure of its ground state &mdash; determine whether a problem can be solved efficiently by classical or quantum algorithms.
+        <br><br>
+        Originally trained as a theoretical physicist, I am interested in problems that sit at the boundary of physics, computer science, and mathematics, where physical intuition and algorithmic techniques can be combined to better understand quantum systems.
+    </p>
+
+    <h3>Current Research</h3>
+    <p>
+        My research focuses on <b>Hamiltonian Complexity Theory</b> including: 
+    </p>
+    <ul>
+        <li>The <span style="font-variant: small-caps;">Local Hamiltonian</span> and <span style="font-variant: small-caps;">Guided Local Hamiltonian</span> problems</li>
+        <li>The computation of partition functions</li>
+        <li>The complexity of preparing ground states</li>
+    </ul>
+    <p>
+        During my PhD, I created the <i><a href="https://www.hamiltonianjungle.xyz" target="_blank" style="color: #ff5c00;">Hamiltonian Jungle</a></i> &mdash; an online repository for classifying known Hamiltonian Complexity problems!
+    </p>
+    <h3>Undergraduate Degree</h3>
+    <p>
+        My background is in <b>Theoretical Physics</b>. 
+        <br>
+        I graduated from the University of Leeds in 2022 with <b>First Class Honours</b> degrees, <b>MPhys</b> and <b>BSc</b> in <b>Theoretical Physics</b>.
+        <br>
+        I specialised in <b>Quantum Optics</b>, focusing on using a new local position space field theory for photons.
+        <br>
+        My Master's thesis studied locally acting mirror Hamiltonians using said theory.
+        <br>
+        This work led to a <a href="https://journals.aps.org/pra/pdf/10.1103/PhysRevA.111.023703" target="_blank" style="color: #ff5c00;">research paper</a> studying the Abraham-Minkowski controversy, which was featured as an Editor's Suggestion in <i>Physical Review A</i>!
+    </p>
+    <h3>Additional Interests</h3>
+    <ul>
+        <li>Quantum Field Theory</li>
+        <li>General Relativity</li>
+        <li>Symmetries and Particle Physics</li>
+        <li>Quantum Information Science</li>
+        <li>Quantum Signal Processing</li>
+    </ul>
+    <h4>Sponsorship</h4>
+    <p>
+        My research is supported by the Sydney Quantum Academy, commencing in April 2023 and running until 2027.
+    </p>
+
+    <hr style="border: 1px solid #333;">
+    <h2>Contact Information</h2>
+    <p>
+        Personal e-mail: 
+        <a href = "mailto: gabrielwaite1999@outlook.com" style="color: #ff5c00;">gabrielwaite1999@outlook.com</a>
+        <br>
+        Student e&ndash;mail: 
+        <a href="mailto: gabriel.waite@student.uts.edu.au" style="color: #ff5c00;">gabriel.waite@student.uts.edu.au</a>
+    </p>
+
+    <hr style="border: 1px solid #333;">
+    <h2>Research</h2>
+    <p>
+        My research focuses on Hamiltonian Complexity theory.
+    </p>
+    <ol>
+        <li> 
+            R. L. Mann and <b>G. Waite</b>, 
+            "Efficient Algorithms for Weakly-Interacting Quantum Spin Systems", 
+            2026.
+            <br>&emsp;
+            <i style="color: #0165fc;">Phys. Rev. A.</i> (In press) | 
+            <a href="https://arxiv.org/abs/2601.21140" style="color: #ff5c00;">arXiv:2601.21140</a>
+            <details class="paper-summary">
+                <summary>Research Summary</summary>
                 <p>
-                    I recently posted <strong>two</strong> new preprints on arXiv!
+                    The partition function of a quantum system encodes its thermodynamic properties, yet approximating it is generally intractable.
+                    For what kinds of quantum systems can we efficiently approximate the partition function, and how does this depend on the system's structure?
+                    A weakly interacting quantum system comprises a free part and a perturbative interaction with a small coupling strength.
+                    We proved that the partition function of such a system can be efficiently (deterministically) approximated to relative-error in polynomial time at any temperature via applications of the cluster expansion method.
+                    Additionally, efficient classical sampling from the Gibbs distribution of such a system is possible at arbitrary temperature which contrasts previously proposed quantum algorithms for similar tasks.
+                    Interestingly, the algorithm can be extended to fermionic systems in the strongly correlated regime, thus representing the importance of considering the full parameter space of structural features when classifying the complexity of quantum systems.
                 </p>
+            </details>
+        </li>
+        <li> 
+            R. L. Mann and <b>G. Waite</b>, 
+            "Approximate Counting in Local Lemma Regimes", 
+            2025.
+            <br>&emsp;
+            <a href="https://arxiv.org/abs/2512.10134" style="color: #ff5c00;">arXiv:2512.10134</a>
+            <details class="paper-summary">
+                <summary>Research Summary</summary>
                 <p>
-                    <a href="https://arxiv.org/abs/2509.25815" target="_blank" style="color: #9d59b8;">Physically-Motivated Guiding States for Local Hamiltonians</a>
+                    Knowing that a solution exists for a constraint satisfaction problem is one thing. 
+                    Being able to count (even approximately) how many solutions there are is another problem entirely, and typically a much harder one.
+                    Yet in regimes where constraints are individually mild and weakly dependent on one another, the Lovász Local Lemma guarantees existence of satisfying assignments. 
+                    This raises the question of whether this same mild-dependence structure also makes approximate counting tractable, i.e., can we efficiently approximate the dimension of the ground space of a local Hamiltonian under LLL-type conditions?
+                    For local commuting projectors, and for non-commuting projectors under natural stability conditions, we obtained fully polynomial-time approximation schemes, showing that the same structural regime that guarantees existence also enables efficient counting.
+                    As a bonus, these results recover efficient approximation algorithms for classical constraint satisfaction as special cases, and the dimension of satisfying subspaces of quantum satisfiability formulae.
+                </p>
+            </details>
+        </li>
+        <li> 
+            <b>G. Waite</b>, Karl Lin, Samuel Elman and Michael Bremner, 
+            "Physically-Motivated Guiding States for Local Hamiltonians", 
+            2025.
+            <br>&emsp;
+            <i style="color: #0165fc;">Phys. Rev. A.</i> (In press) | 
+            <a href="https://arxiv.org/abs/2509.25815" style="color: #ff5c00;">arXiv:2509.25815</a>
+            <details class="paper-summary">
+                <summary>Research Summary</summary>
+                <p>
+                    Does ground-state energy estimation become easier if you have a guiding state &mdash; a state that has some non-trivial overlap with the ground state?
+                    This question is motivated by the fact that existing algorithms used in practice often construct trial states that are then used to guide the search and hopefully converge to an appropriate estimate.
+                    The <span style="font-variant: small-caps;">Guided Local Hamiltonian</span> problem formalises this idea by augmenting the input to the <span style="font-variant: small-caps;">Local Hamiltonian</span> problem with a classical description of a guiding state.
                     <br>
-                    This work was done in collaboration with Karl Lin, Samuel Elman and Michael Bremner.
+                    Prior work had explored only a narrow slice of possible guiding state families, leaving the robustness of quantum advantage claims in this setting largely untested.
+                    We systematically expanded this parameter space, developing a general hardness framework that exposes how the problem's complexity shifts as the guiding state varies &mdash; turning knobs that prior work had left fixed.
+                    Our central finding is that quantum advantage here can be fragile as it depends sensitively on how the guiding state is described: quantum tractability demands a description that enables uniform state preparation and classical tractability demands a description that enables efficient classical query and sampling access to the guiding state.
+                    To address this fragility, we identified a <i>Goldilocks zone</i> to describe a regime of parameters where the input models for classical and quantum algorithms are directly comparable, thus placing quantum advantage claims on fairer ground.
                 </p>
+            </details>
+        </li>
+        <li> 
+            <b>G. Waite</b>,
+            "The Guided Local Hamiltonian Problem for Stoquastic Hamiltonians",
+            2025.
+            <br>&emsp;
+            <a href=" https://arxiv.org/abs/2509.25829" style="color: #ff5c00;">arXiv:2509.25829</a>
+            <details class="paper-summary">
+                <summary>Research Summary</summary>
                 <p>
-                    <a href="https://arxiv.org/abs/2512.10134" target="_blank" style="color: #9d59b8;">Approximate Counting in Local Lemma Regimes</a>
-                    <br>
-                    This work was done in collaboration with Ryan Mann.
+                    Local stoquastic Hamiltonians are already amenable to classical simulation techniques, therefore, does adding a guiding state make ground-state energy estimation tractable?
+                    The complexity classifications depend delicately on the stoquastic structure.
+                    For stoquastic Hamiltonians built by pinning a site of a general local Hamiltonian to a fixed state, I prove the guiding state provides no relief: the problem remains as hard as in the fully quantum guided setting.
+                    For genuinely general local stoquastic Hamiltonians, I prove the complexity drops, but not far enough to reach efficient classical algorithms, even on lattice geometries.
+                    Together, amenability to classical techniques and the presence of a guiding state are simply not enough, on their own or in combination, to make the problem classically easy.
                 </p>
-            </div>
-        </div>
-    </div>
+            </details>
+        </li>
+        <li>
+            <b>G. Waite</b> and Karl Lin,
+            "On the Complexity of the Succinct State Local Hamiltonian Problem",
+            2025.
+            <br>&emsp;
+            <a href="https://arxiv.org/abs/2509.25821" style="color: #ff5c00;">arXiv:2509.25821</a>
+            <details class="paper-summary">
+                <summary>Research Summary</summary>
+                <p>
+                    Hardness results in quantum complexity often feel remote from physical reality, but what if you already knew something about the answer? 
+                    What if the structure of the ground state itself was handed to you, in the form of an efficient classical description of its amplitudes &mdash; the kind of access that underlies modern quantum learning algorithms like classical shadow tomography?
+                    This is the question behind the succinct state variant of the <span style="font-variant: small-caps;">Local Hamiltonian</span> problem, where the ground state's amplitudes are efficiently accessible via a classical query algorithm.
+                    Strikingly, the result reveals a clean separation: while the ground state remains hard to find, its energy becomes classically verifiable &mdash; and we show this optimally, improving the prior locality bound from 6-local to 2-local via a classification of succinct state families through algebraic amplitude encodings.
+                    Our results reveal where the complexity classification transition boundary occurs for this problem, and open new complexity-theoretic questions at the interface with quantum learning theory.
+                </p>
+            </details>
+        </li>
+        <li>
+            <b>G. Waite</b> and Michael Bremner,
+            "The Complexity of Local Stoquastic Hamiltonians on 2D Lattices",
+            2025.
+            <br>&emsp;
+            <a href="	https://doi.org/10.22331/q-2026-05-06-2097" style="color: #0165fc;"><i>Quantum, vol. 10, pg. 2097</i></a> 
+            | 
+            <a href="https://arxiv.org/abs/2502.14244" style="color: #ff5c00;">arXiv:2502.14244</a>
+            <details class="paper-summary">
+                <summary>Research Summary</summary>
+                <p>
+                    Local stoquastic Hamiltonians are free of the quantum sign problem that arises in general quantum systems; this structural property that makes them amenable to quantum Monte Carlo and classical simulation techniques.
+                    But does this structure actually make ground-state energy estimation any easier?
+                    Does constraining a stoquastic system to live on a physical lattice tip the balance toward classical tractability?
+                    We show that the answer is no: even on the simplest 2D lattices, and without inflating the local dimension, estimating the ground-state energy of stoquastic systems remains as hard as the hardest problems in a complexity class known as <b>StoqMA</b> (stoquastic Merlin-Arthur).
+                    The key insight is a gadget construction, relying on perturbation theory, that embeds arbitrary local stoquastic Hamiltonians into lattice-constrained systems while preserving stoquasticity throughout.
+                    This result closes off a natural and well-motivated route to classical simulation and sharpens the question of what, if anything, makes stoquastic systems tractable.
+                </p>
+            </details>
+        </li>
+        <li>
+            <b>G. Waite</b>, Daniel Hodgson, Ben Lang, Varghese Alapatt and Almut Beige,
+            "Local-photon model of the momentum of light",
+            2025.
+            <br>&emsp;
+            <a href="https://journals.aps.org/pra/pdf/10.1103/PhysRevA.111.023703" style="color: #0165fc;"><i>Phys. Rev. A 111, 023703</i></a> | 
+            <a href="https://arxiv.org/abs/2410.03633" style="color: #ff5c00;">arXiv:2410.03633</a>
+        </li>
+    </ol>
 
-<!-- About Me -- Popup -->
-    <div id="about-me-popup" class="overlay">
-        <div class="popup">
-            <h2 style="color: #342200; text-align: right; margin-top: -3px; margin-bottom: -0.5px;">About Me</h2>
-            <span class="close-btn">x</span>
-            <div class="text-box">
-                <p>
-                    Hello, I am <strong>Gabriel Waite</strong>, currently a <strong>PhD student</strong> at the University of Technology Sydney, studying Quantum Complexity and Algorithms under the supervision of Michael Bremner, Troy Lee and Ryan Mann.
-                </p>
-                <div class="separator">My Interests and Passions</div>
-                <p>
-                    I was trained in theoretical physics, but my interests increasingly shifted toward computation and computer science. I became particularly drawn to the algorithmic and computational challenges that arise in the study of quantum systems, which ultimately motivated me to pursue a PhD.
-                </p>
-                <p>
-                    My research journey has allowed me to build a strong foundation in programming, algorithms, and theoretical computer science, while remaining grounded in physical intuition. I value careful, deliberate learning and enjoy developing both conceptual understanding and practical technical skills.
-                </p>
-                <p>
-                    Surrounded by talented peers and mentors, I am continually refining my perspective and exploring new ideas at the interface of physics and computation.
-                </p>
-                <p>
-                    My passions drive me to find opportunities to apply my knowledge and skills in practical ways.
-                    I am always looking for new challenges and projects to work on, whether it be in research, coding or other areas.
-                </p>
-
-                <div class="separator">Current Research</div>
-                <p>
-                    My research focuses on <strong>Hamiltonian Complexity Theory</strong> including the local Hamiltonian problem, computation of partition functions, ground state preparation and quantum optimisation algorithms.
-                </p>
-                <p>
-                    As a part of my research I created the <strong><a href="hamiltonianjungle.xyz" target="_blank" style="color: #342200;">Hamiltonian Jungle</a></strong> &mdash; an online repository for classifying known Hamiltonian Complexity problems!
-                </p>
-                <div class="separator">Undergraduate Degree</div>
-                <p>
-                    My background is in <strong>Theoretical Physics</strong>. 
-                    I graduated from the University of Leeds in 2022 with <strong>First Class Honours</strong> degrees, <strong>MPhys</strong> and <strong>BSc</strong> in <strong>Theoretical Physics</strong>.
-                </p>
-                <p>
-                    I specialised in <strong>Quantum Optics</strong>, focusing on using a new local position space field theory construction for photons.
-                    My Master's thesis studied locally acting mirror Hamiltonians using said theory.
-                    Our <a href="https://journals.aps.org/pra/pdf/10.1103/PhysRevA.111.023703" target="_blank" style="color: #9d59b8;">research paper</a> was featured as an <strong>Editor's Suggestion</strong> in <strong>Physical Review A</strong>!
-                </p>
-                <div class="separator">Additional Interests</div>
-                <p>
-                    During my undergraduate degree I enjoyed many aspects of Theoretical Physics. 
-                    My main interests lie with:
-                    <ul>
-                        <li>Quantum Field Theory</li>
-                        <li>General Relativity</li>
-                        <li>Quantum Information Science</li>
-                        <li>Symmetries and Particle Physics</li>
-                    </ul>
-                </p>
-                <div class="separator">Sponsorship</div>
-                <p>
-                    My research is supported by the Sydney Quantum Academy, commencing in April 2023 and running until 2027.
-                </p>
-            </div>
-         </div>
-    </div>
-
-<!-- Posters -- Popup -->
-    <div id="poster-popup" class="poster-overlay">
-        <div class="poster-popup">
-            <h2 style="color: #342200; text-align: right; margin-top: -3px; margin-bottom: -0.5px;">Posters</h2>
-            <span class="close-btn">x</span>
-            <div class="poster-text-box">
-                <div class="separator">Upcoming Posters</div>
-                <div class="poster-item">
-                    <p>
-                        <strong>Physically-Motivated Guiding States for Local Hamiltonians</strong>
-                        <br>
-                        Presented at: <em>AIP, 2025</em>
-                    </p>
-                    <br>
-                    <a href="media/research/aip-poster-a4.pdf"><img class="poster-icon" src="media/poster_file_icon.png" alt="File Icon"></a>
-                </div>
-                <div class="separator">Past Posters</div>
-                <div class="poster-item">
-                    <p>
-                        <strong>Hamiltonian Jungle: Navigating the quantum complexity theory of Hamiltonians</strong>
-                        <br>
-                        Presented at: <em>Quantum Australia, 2024</em> and <em>CQC2T, 2024</em>
-                    </p>
-                    <br>
-                    <a href="media/research/ham-jungle-poster-a4.pdf"><img class="poster-icon" src="media/poster_file_icon.png" alt="File Icon"></a>
-                </div>
-                <div class="poster-item">
-                    <p>
-                        <strong>The Complexity of The Local Hamiltonian Problem on Restricted Geometries</strong>
-                        <br>
-                        Presented at: <em>TQC, 2024</em>
-                    </p>
-                    <br>
-                    <a href="media/research/tqc-poster-a4.pdf"><img class="poster-icon" src="media/poster_file_icon.png" alt="File Icon"></a>
-                </div>
-                <div class="poster-item">
-                    <p>
-                        <strong>A local photon perspective on the Abraham-Minkowski controversy</strong>
-                        <br>
-                        Presented at: <em>CQC2T, 2024</em>
-                    </p>
-                    <br>
-                    <a href="media/research/am-poster-a4.pdf"><img class="poster-icon" src="media/poster_file_icon.png" alt="File Icon"></a>
-                </div>
-            </div>
-
-        </div>
-    </div>  
-<!-- Talks -- Popup -->
-    <div id="talk-popup" class="talk-overlay">
-        <div class="talk-popup">
-            <h2 style="color: #342200; text-align: right; margin-top: -3px; margin-bottom: -0.5px;">Talks</h2>
-            <span class="close-btn">x</span>
-            <div class="separator">Upcoming Talks</div>
-                <div class="talk-item">
-                    <p>
-                        <strong>Quantum Counting Problems and Approximate Solutions</strong>
-                    </p>
-                    <p>
-                        <em>Date to be announced!</em>
-                    </p>
-                </div>
-            <div class="separator">Past Talks</div>
-                <div class="talk-item">
-                    <p>
-                        <strong>The Complexity of Local Stoquastic Hamiltonians on 2D Lattices</strong>
-                    </p>
-                    <a href="media/research/stoq-pres.pdf"><img class="poster-icon" src="media/slides_file_icon.png" alt="File Icon" style="width: 150px;"></a>
-                </div>
-                <div class="talk-item">
-                    <p>
-                        <strong>Physically-Motivated Guiding States for Local Hamiltonians</strong>
-                    </p>
-                    <a href="media/research/ca-pres.pdf"><img class="poster-icon" src="media/slides_file_icon.png" alt="File Icon" style="width: 150px;"></a>
-                </div>
-                <div class="talk-item">
-                    <p>
-                        <strong>Efficient classical algorithms for calculating the free energy of quantum spin systems on trees</strong>
-                    </p>
-                    <a href="media/research/sqa-pres.pdf"><img class="poster-icon" src="media/slides_file_icon.png" alt="File Icon" style="width: 150px;"></a>
-                </div>
-            </div>
-        </div>
-
-<!-- Reasearch -- Popup -->
-    <div id="research-popup" class="research-overlay">
-        <div class="research-popup">
-            <h2 style="color: #342200; text-align: right; margin-top: -3px; margin-bottom: -0.5px;">Research</h2>
-            <span class="close-btn">x</span>
-            <div class="research-text-box">
-                <p>
-                    My research focuses on Hamiltonian Complexity Theory, including the local Hamiltonian problem, computation of partition functions, ground state preparation and quantum optimisation algorithms.
-                </p>
-                <div class="separator">Recent Research</div>
-                <div class="research-item">
-                    <p>
-                        <strong>Approximate Counting in Local Lemma Regimes</strong>
-                        &dash; (2025)
-                        <br>
-                        <em>with: Ryan Mann</em>
-                    </p>
-                    <a href="https://arxiv.org/abs/2512.10134"><img class="file-icon" src="media/arXiv_file_icon.png" alt="File Icon"></a>
-                </div>
-                <div class="research-item">
-                    <p>
-                        <strong>Physically-Motivated Guiding States for Local Hamiltonians</strong>
-                        &dash; (2025)
-                        <br>
-                        <em>with: Karl Lin, Samuel Elman and Michael Bremner</em>
-                    </p>
-                    <a href="https://arxiv.org/abs/2509.25815"><img class="file-icon" src="media/arXiv_file_icon.png" alt="File Icon"></a>
-                </div>
-                <div class="research-item">
-                    <p>
-                        <strong>The Guided Local Hamiltonian Problem for Stoquastic Hamiltonians</strong>
-                        &dash; (2025)
-                    </p>
-                    <a href=" https://arxiv.org/abs/2509.25829"><img class="file-icon" src="media/arXiv_file_icon.png" alt="File Icon"></a>
-                </div>
-                <div class="research-item">
-                    <p>
-                        <strong>On the Complexity of the Succinct State Local Hamiltonian Problem</strong>
-                        &dash; (2025)
-                        <br>
-                        <em>with: Karl Lin</em>
-                    </p>
-                    <a href="https://arxiv.org/abs/2509.25821"><img class="file-icon" src="media/arXiv_file_icon.png" alt="File Icon"></a>
-                </div>
-                <div class="separator">Past Research</div>
-                <div class="research-item">
-                    <p>
-                        <strong>The Complexity of Local Stoquastic Hamiltonians on 2D Lattices</strong>
-                        &dash; (2025)
-                        <br>
-                        <em>with: Michael Bremner</em>
-                    </p>
-                    <a href="https://arxiv.org/abs/2502.14244"><img class="file-icon" src="media/arXiv_file_icon.png" alt="File Icon"></a>
-                </div>
-                <div class="research-item">
-                    <p>
-                        <strong>Local-photon model of the momentum of light</strong>
-                        &dash; (2025)
-                        <br>
-                        <em>with: Daniel Hodgson, Ben Lang, Varghese Alapatt and Almut Beige</em>
-                    </p>
-                    <a href="https://journals.aps.org/pra/pdf/10.1103/PhysRevA.111.023703" target="_blank"><img class="file-icon" src="media/pra_file_icon.png" alt="File Icon"></a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-<!-- Coding - Popup -->
-    <div id="coding-popup" class="coding-overlay">
-        <div class="coding-popup">
-            <h2 style="color: #342200; text-align: right; margin-top: -3px; margin-bottom: -0.5px;">Coding Adventures</h2>
-            <!-- <a class="close" href="#">x</a> -->
-            <span class="close-btn">x</span>
-            <div class="coding-text-box">
-                <p>
-                    I enjoy coding in my spare time, and have worked on a few projects.
-                </p>
-                <div class="separator">Recent Projects and Learning</div>
-                <div class="coding-item">
-                    <p>
-                        <font style="font-size: 15px;"><strong>This website!</strong></font>
-                        <br><br>
-                        I updated my personal website, getting more into HTML and CSS.
-                        It was about time for a refresh!
-                        I am not a web developer, but I have enjoyed learning how to make this website and customise it to my liking.
-                        <br>
-                        As I continue to learn, I hope to add more features and improve the overall design!
-                    </p>
-                </div>
-                <div class="coding-item">
-                    <p>
-                        <font style="font-size: 15px;"><strong>Learning C</strong></font>
-                        <br><br>
-                        I have recently started learning C, working through the book <em>The C Programming Language</em> by Kernighan and Ritchie.
-                        <br>
-                        I do not come from a computing background, but have picked up a lot of interest in low-level computing.
-                        This was motivated by a recent preprint of mine - <em>On the complexity of the succinct state local Hamiltonian problem</em>, where I had to design algorithms to encode algebraic numbers in a succinct way.
-                    </p>
-                </div>
-                <div class="coding-item">
-                    <p>
-                        <font style="font-size: 15px;"><strong>State Preparation</strong></font>
-                        <br><br>
-                        I was recently involved in a project to implement a state preparation algorithm using the <strong>Quantum Signal Processing</strong> framework among other methods, such as QROM.
-                        My job was to compute and code the elements of this QSP algorithm.
-                        A significant portion of this project was analytical, e.g., finding a nice form for the Taylor series coefficients of the target function (Gaussian).
-                        <br>
-                        I coded four Python scripts, each with a different purpose: <em>CoefficientFinder.py</em>, <em>AngleAnalysis.py</em>, <em>QSPStatePrep.py</em> and <em>StateCoeffAnalysis.py</em>.
-                    </p>
-                    <a href="https://github.com/ichirokira/RealStatePrep" target="_blank"><img class="folder-icon" src="media/github_folder_icon.png" alt="Folder Icon"></a>
-                </div>
-                <div class="separator">Example Past Projects</div>
-                <div class="coding-item">
-                    <p>
-                        <font style="font-size: 15px;"><strong>Hamiltonian Simulation</strong></font>
-                        <br><br>
-                        A project for a course I undertook during the first year of my PhD was to implement a Hamiltonian simulation algorithm.
-                        Myself and two fellow students wrote both classical and quantum algorithms to simulate the time evolution of a small local Pauli Hamiltonians.
-                        My primary contribution was to code the <strong>Trotterisation</strong> method.
-                    </p>
-                    <a href="https://github.com/GabrielWaite/QSP-Coding" target="_blank"><img class="folder-icon" src="media/github_folder_icon.png" alt="Folder Icon"></a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <footer style="text-align: center; margin-top: 20px; position:absolute; bottom:0; width: 100%;">
-        <nav>
-            <ul id="nav_links">
-              <li><a href="#about-me-popup">About Me</a></li>
-              <li><a href="#research-popup">Research</a></li>
-              <li><a href="#poster-popup">Posters</a></li>
-              <li><a href="#talk-popup">Talks</a></li>
-              <li><a href="#coding-popup">Coding Adventures</a></li>
-              <li><a href="http://www.hamiltonianjungle.xyz" target="_blank">Hamiltonian Jungle</a></li>
-            </ul>
-          </nav>
-    </footer>
-    <script src="script.js"></script>
+    <hr style="border: 1px solid #333;">
+    <h2>Posters and Talks</h2>
+    <h3>Posters</h3>
+    <ul>
+        <li>
+            "Physically-Motivated Guiding States for Local Hamiltonians", 2025.
+            <br>&emsp;
+            <i>AIP 2025, Sydney</i>
+        </li>
+        <li>
+            "The Hamiltonian Jungle", 2024.
+            <br>&emsp;
+            <i>CQC2T, Central Coast</i> and <i>Quantum Australia, Sydney</i>
+        </li>
+        <li>
+            "A Local Photon Perspective on the A-M Controversy", 2024.
+            <br>&emsp;
+            <i>CQC2T, Central Coast</i>
+        </li>
+    </ul>
+    <h3>Talks</h3>
+    <ul>
+        <li>
+            "Physically-Motivated Guiding States for Local Hamiltonians", 2026.
+            <br>&emsp;
+            (Upcoming) <i>QSIM 2026, Amsterdam</i>
+        </li>
+        <li>
+            "Efficient Algorithms for Weakly-Interacting Quantum Spin Systems", 2026.
+            <br>&emsp;
+            <i>Sydney Quantum Academy Welcome Night, Sydney</i>
+        </li>
+        <li>
+            "Efficient Algorithms for the Free Energy of Quantum Spin Systems on Tree Graphs", 2024.
+            <br>&emsp;
+            <i>Sydney Quantum Academy, Sydney</i> and <i>University of Leeds, Leeds</i>
+        </li>
+        <li>
+            "The Complexity of Local Stoquastic Hamiltonians on 2D Lattices", 2024.
+            <br>&emsp;
+            <i>(online) J. Eisert's Group</i>
+        </li>
+    </ul>
 </body>
 </html>
